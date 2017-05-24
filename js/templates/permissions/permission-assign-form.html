@@ -1,0 +1,54 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <%= user.username %>
+        <% if (user.firstname || user.lastname) { %>
+            (<%= user.firstname +' '+ user.lastname %>)
+        <% } %>
+        <span class="badge"><%= user.type %></span>
+    </div>
+    <div class="panel-body">
+        <form>
+            <div class="form-group">
+                <select class="form-control unassigned-perms" style="width: 75%;">
+                    <% _.each(unassigned, function(perms, type){ %>
+                    <optgroup label="<%= type %>">
+                        <% _.each(perms, function(perm){ %>
+                        <option value="<%= perm.id %>"> <%= perm.name %> <%= perm.assocobj?'('+perm.assocobj+')':'' %> </option>
+                        <% })%>
+                    </optgroup>
+                    <% })%>
+                </select>
+                <button type="button" class="btn btn-primary btn-assign-permission btn-sm">
+                    Assign
+                </button>
+            </div>
+        </form>
+        <ul class="assigned-perms">
+            <% _.each(assigned, function(perms, type){ %>
+            <li>
+                <span class="badge"><%= type %></span>
+                <ul style="list-style-type: none;">
+                <% _.each(perms, function(objperm, objname){ %>
+                <li>
+                    <% if (type=='operation'){ %>
+                        <i class="fa fa-times btn-unassign-permission" style="color:red;cursor: pointer" title="Delete permission" data-perm-id="<%= objperm.id %>"></i>
+                        <span><%= objperm.name%></span>    
+                    <% } else { %>
+                        <span><%= objname%></span>
+                        <ul style="list-style-type: none;">
+                            <% _.each(objperm, function(perm){ %>
+                            <li>
+                                <i class="fa fa-times btn-unassign-permission" style="color:red;cursor: pointer" title="Delete permission" data-perm-id="<%= perm.id %>"></i>
+                                <span><%= perm.name%></span>
+                                </li>   
+                            <% })%>
+                        </ul>
+                    <% }%> 
+                    </li>
+                    <% })%>
+                </ul>
+            </li>
+            <% }) %>
+        </ul>
+    </div>
+</div>

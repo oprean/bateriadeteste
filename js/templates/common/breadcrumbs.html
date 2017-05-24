@@ -1,0 +1,11 @@
+<ol class="breadcrumb">
+  <li><a href="#"><%=i18n.t('home')%></a></li>
+    <% _.each(bcs, function(bc,i){
+        if (bc.visible == false) return; 
+        if (i < bcs.length-1) {%>
+            <li><a href="<%= bc.href %>"><%= bc.text %></a></li>
+        <% } else { %>
+            <li class="active"><%= bc.text %></li>            
+        <% } %>        
+    <% }) %>
+</ol>

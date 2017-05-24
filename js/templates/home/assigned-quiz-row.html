@@ -1,0 +1,8 @@
+<div class="assigned-quiz"><%= qtr(quiz.name) %></div>
+<a class="btn btn-xs btn-primary" href="#quiz/<%=quiz.id %>/q/home"><%= qtr('new') %></a>
+<% if (quiz.status.text != 'done') { %>
+    <a class="btn btn-xs btn-primary" href="#quiz/<%=quiz.id %>/q/<%=quiz.status.question %>"><%= qtr('resume') %></a>
+<% } %>
+<% if (quiz.status.results>0) { %>
+    <a class="btn btn-xs btn-primary" href="#quiz/<%=quiz.id %>/q/result"><%= qtr('result') %></a>
+<% } %>

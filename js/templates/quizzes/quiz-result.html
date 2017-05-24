@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="quiz-result-html">
+                        <%= html %>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="btn btn-lg btn-primary btn-send-email" data-loading-text="Se trimite...">
+                <i class="fa fa-envelope-o"></i> <%= qtr('send by e-mail')%>
+            </button>
+            <a href="api/pdf/result/<%= result.id+'/'+app.locale %>" download="result.pdf" class="btn btn-lg btn-primary btn-download-pdf" >
+                <i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF
+            </a>
+        </div>
+    </div>
+</div>

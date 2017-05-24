@@ -1,0 +1,72 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <% if (appUser.permCheck(perms,'edit')) { %>
+                <button class="btn btn-xs btn-primary btn-edit-quiz pull-right">Edit</button>
+                <% } %>
+                <h3 class="panel-title">
+                    Description
+                </h3>
+              </div>
+              <div class="panel-body">
+                <div>
+                    <label>Description: </label>
+                    <%= qtr(description) %>                
+                </div>
+              </div>
+			  <div class="panel-footer">
+			    <button class="btn btn-xs btn-primary btn-preview-quiz">Preview</button>
+                <a href="api/pdf/quiz/<%= id+'/'+app.locale %>" download="result.pdf" class="btn btn-xs btn-primary btn-download-pdf pull-right" >
+                    <i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF
+                </a>
+			  </div>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <% if (appUser.permCheck(perms,'edit')) { %>
+                <button class="btn btn-xs btn-primary btn-add-quiz-question pull-right">Add</button>
+                <% } %>
+                <h3 class="panel-title">
+                    Questions
+                </h3>
+              </div>
+              <div class="panel-body">
+                <div class="questions-container">bla ...</div>
+              </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <% if (appUser.permCheck(perms,'edit')) { %>
+                <button class="btn btn-xs btn-primary btn-add-quiz-group pull-right">Add</button>
+                <% } %>
+                <h3 class="panel-title">
+                    Groups
+                </h3>
+              </div>
+              <div class="panel-body">
+                <div class="groups-container">bla ...</div>
+              </div>
+            </div>
+            
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <% if (type==Constants.QUIZ_TYPE_GIFTS && appUser.permCheck(perms,'edit')) { %>
+                <button class="btn btn-xs btn-primary btn-add-quiz-option pull-right">Add</button>
+                <% } %>
+                <h3 class="panel-title">
+                    Options
+                </h3>
+              </div>
+              <div class="panel-body">
+                <div class="options-container">No common options ...</div>
+              </div>
+            </div>
+        </div>        
+    </div>
+</div>

@@ -1,0 +1,63 @@
+.select-surface-control {
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 10px;
+	cursor: crosshair;
+	
+	-webkit-user-select: none; /* Chrome/Safari */        
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+ */
+	
+/*	-webkit-box-shadow: inset 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+	-moz-box-shadow:    inset 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+	box-shadow:         inset 0px 0px 5px 0px rgba(50, 50, 50, 0.75);*/
+}
+
+.surface-name {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	/*text-shadow: 2px 2px 15px rgba(150, 150, 150, 1);*/
+	font-size:2em;
+	font-weight: 900;
+	opacity: 0.2;
+}
+
+.control-point {
+	border-radius:50%;
+	position: absolute;
+	cursor: move;
+	z-index:99;
+	opacity: 0.9;
+	
+	-webkit-box-shadow: 0px 0px 7px 0px rgba(50, 50, 50, 0.75);
+	-moz-box-shadow:    0px 0px 7px 0px rgba(50, 50, 50, 0.75);
+	box-shadow:         0px 0px 7px 0px rgba(50, 50, 50, 0.75);
+	
+}
+
+.component-container {
+	position: absolute;
+}
+
+.component-name {
+	position: absolute;
+	font-weight: 900;
+	opacity: 0.6;
+}
+
+.postfix {
+	font-size: 0.7em;
+}
+
+.component-point {
+	font-size: 2em;
+	font-weight: 900;
+	border-radius:50%;
+	position: absolute;
+	background: #AAAAAA;
+ 	text-align:center;
+ 	opacity: 0.4;
+}

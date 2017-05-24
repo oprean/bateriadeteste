@@ -1,0 +1,7 @@
+  <ul class="nav nav-sidebar">
+  	<% _.each(items, function(item){ %>
+    <li class="<%= (item.name==active)?'active':'' %>">
+    	<a class="side-menu-item" href="<%=item.href %>"><%=item.label %></a>
+    </li>  		
+  	<% }) %>
+  </ul>

@@ -1,0 +1,34 @@
+<form>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-5">
+                <select class="select-filter-by-quiz" style="width: 100%" class="form-control">
+                    <option value="all"><%=qtr('all quizzes')%></option>
+                    <% _.each(quizzes, function(quiz){ %>
+                        <option value="<%=quiz.id%>"><%=qtr(quiz.name)%></option>
+                    <% })%>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <select class="select-filter-by-user" style="width: 100%" class="form-control">
+                    <option value="all"><%=qtr('all users')%></option>
+                    <% _.each(users, function(user){ %>
+                        <option value="<%=user.id%>"><%=user.name%></option>
+                    <% })%>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <select class="select-filter-by-group" style="width: 100%" class="form-control">
+                    <option value="all"><%=qtr('all groups')%></option>
+                    <% _.each(groups, function(group){ %>
+                        <option value="<%=group.id%>"><%=group.name%></option>
+                    <% })%>
+                </select>
+            </div>
+            <div class="col-md-1">
+                <button type="button" class="btn btn-sm btn-primary btn-filter-results">Filter</button>
+                <a href="api/excel/result/<%= app.locale %>" title="Download in Excel 2007 format" class="btn btn-success btn-sm btn-download-xls"><i class="fa fa-file-excel-o" aria-hidden="true"></i> XLS</a> 
+            </div>
+        </div>
+    </div>
+</form>

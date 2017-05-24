@@ -1,0 +1,17 @@
+<div class="list-group sortable-options">
+<% _.each(options, function(option){ %>
+  <div class="list-group-item quiz-option-item" data-id="<%=option.id %>">
+    <h4 class="list-group-item-heading">
+        <span class="option-text"><%=qtr(option.get('text')) %></span>
+        <div class="pull-right">
+            <% if (appUser.permCheck(quiz.get('perms'),'edit')) { %>
+            <button class="btn btn-success btn-xs btn-edit-quiz-option" data-id="<%=option.id %>">Edit</button>
+            <% } if (appUser.permCheck(quiz.get('perms'),'delete')) { %>
+            <button class="btn btn-danger btn-xs btn-delete-quiz-option" data-id="<%=option.id %>">Delete</button>
+            <% } %>        
+        </div>
+    </h4>
+    <p class="list-group-item-text">Value: <%=option.get('value') %></p>
+  </div>    
+<%})%>
+</div>

@@ -1,0 +1,20 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <%= assocobj %>
+        <% if (missingPerm) { %>
+            <button type="button" title="Fix permissions" class="btn-fix-permission btn btn-xs btn-danger pull-right">
+                Fix permissions
+            </button>            
+        <% } %>
+    </div>
+    <div class="panel-body">
+        <ul class="assigned-perms">
+            <% _.each(perms, function(perm){ %>
+            <li>
+                <span><%= perm.name%> (<span class="text-muted"><%= perm.id %>)</span>
+            </li>
+            <% })%>
+        </ul>
+
+    </div>
+</div>

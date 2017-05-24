@@ -1,0 +1,16 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+            <h1 class="center-block"><%= qtr(name) %></h1>
+          <p class="text-justify"><%= qtr(description) %></p>    
+      </div>        
+    </div>
+  <br />
+  <p>
+    <a class="btn btn-primary btn-lg btn-start" href="#quiz/<%= id %>/q/1" role="button"><%= qtr('Start') %></a>
+    <a style="display:none" class="btn btn-primary btn-lg btn-resume" href="#quiz/<%= id + '/' + status.data %>" role="button">Continuă</a>
+    <a style="display:none" class="btn btn-primary btn-lg btn-result" href="#quiz/<%= id %>/result" role="button">Rezultat</a>
+    <p class="label-started-on" style="display:none">Început : <%= status.start_date %></p>
+  </p>
+</div>
+ 

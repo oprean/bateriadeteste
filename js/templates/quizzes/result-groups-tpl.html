@@ -1,0 +1,10 @@
+<ul>
+    <% _.each(groups, function(item) { %>
+    <li class="score-item" data-group-id="<%= item.group_id %>">
+        <span class="score-name"><%= qtr(item.name) %></span>
+        <span class="badge"><%= item.total %></span>
+        <br />
+        <span style="display: none" class="score-description"><%= qtr(item.description) %></span>
+    </li>
+    <% }) %>
+</ul>

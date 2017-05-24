@@ -1,0 +1,17 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+            <div class="group-list-container">
+                <ul class="list-group">
+                  <% groups.each(function(group){ %>
+                    <a class="list-group-item group-item <%=group.id==groupid?'active':''%>" href="#group/<%=group.id%>"><%=group.get('name')%>
+                    </a>            
+                  <% }) %>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-10">
+            <div class="group-container">No group selected ...</div>
+        </div>
+    </div>
+</div>

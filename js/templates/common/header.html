@@ -1,0 +1,44 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">
+      	<img alt="Brand" src="assets/img/logo.png" class="pull-left" style="height: 20px; padding-right: 10px;">
+      	<%=i18n.t('app_name') %>
+      	</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    	
+    <% if (appUser) { %> 	
+      <ul class="nav navbar-nav">
+        <% _.each(menuItems, function(item){%>
+        <li><a href="<%=item.href%>" class="top-menu-item"><%= item.text%></a></li>            
+        <%})%>
+      </ul>    
+      <ul class="nav navbar-nav navbar-right">
+      	<li><a href="logout"><%=i18n.t('logout')%></a></li>
+      	<li><div style="padding: 14px;">
+      		<a href="lang/ro"><img src="assets/img/flags/16/ro.png"></a>
+      		<a href="lang/en"><img src="assets/img/flags/16/gb.png"></a>      		
+      	</div></li>
+      </ul>
+      <div class="navbar-text navbar-right"><%=i18n.t('hello') %>, <a href="#profile" class="navbar-link"><%= appUser.username %></a>!</div>
+	  <!--form class="navbar-form navbar-right" role="search">
+		  <div class="form-group">
+		    <input type="text" class="form-control" placeholder="Search">
+		  </div>
+		  <button type="submit" class="btn btn-default">Search <i class="fa fa-search fa-2" aria-hidden="true"></i></button>
+	  </form-->
+    <% } %>  
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<div class="breadcrumbs-container"></div>

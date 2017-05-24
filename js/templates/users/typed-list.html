@@ -1,0 +1,32 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= title %>
+    <% if (showCtrl) { %>
+        <button class="btn btn-xs btn-primary pull-right btn-add">Add</button>            
+    <% } %>
+     <% if(select) { %>
+        <div style="height: 10px;"></div>
+        <select class="form-control item-select" name="item-select" style="width: 100%">
+          <% _.each(select,function(item){ %>
+            <option value="<%=item.id %>"><%=qtr(item[attr]) %></option>
+          <% }) %>
+        </select>
+     <% } %>
+    </h3>
+  </div>
+  <div class="panel-body">
+    <ul class="list-group">
+      <% _.each(list, function(item){ %>
+        <li class="list-group-item <%=type%>-item">
+            <a href="#<%=href+'/'+item.id%>"><%=qtr(item[attr])%></a>
+            <% if (showCtrl) { %>
+            <button aria-label="Close" class="close btn-del" type="button" 
+                data-userid="<%=id%>" data-item-type="<%=type%>" data-item-id="<%=item.id%>">
+                <span aria-hidden="true">×</span>
+            </button>
+            <% } %>
+        </li>            
+      <% }) %>
+    </ul>
+  </div>
+</div>

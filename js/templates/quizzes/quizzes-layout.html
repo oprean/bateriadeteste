@@ -1,0 +1,17 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+            <div class="quiz-list-container">
+                <ul class="list-group">
+                  <% quizzes.each(function(quiz){ %>
+                    <a class="list-group-item list-item <%=quiz.id==quizid?'active':''%>" href="#quiz/<%=quiz.id%>"><%=qtr(quiz.get('name'))%>
+                    </a>            
+                  <% }) %>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-10">
+            <div class="quiz-container"><%=i18n.t('no_quiz_selected')%> ...</div>
+        </div>
+    </div>
+</div>

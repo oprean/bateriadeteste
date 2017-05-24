@@ -1,0 +1,6 @@
+<%= username %><br />
+<% if (user.firstname || user.lastname) { %>
+    (<%= user.firstname +' '+ user.lastname %>)    
+<% } %><br />
+<span class="badge"><%= user.type %></span>
+

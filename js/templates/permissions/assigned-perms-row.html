@@ -1,0 +1,27 @@
+<ul class="assigned-perms">
+    <% _.each(perms, function(tperms, type){ %>
+    <li>
+        <span class="badge"><%= type %></span>
+        <ul style="list-style-type: none;">
+            <% _.each(tperms, function(objperm, objname){ %>
+            <li>
+                <% if (type=='operation'){ %>
+                    <i class="fa fa-check"></i>
+                    <span><%= objperm.name%></span>    
+                <% } else { %>
+                    <span><%= objname%></span>
+                    <ul style="list-style-type: none;font-size:0.8em">
+                        <% _.each(objperm, function(perm){ %>
+                        <li>
+                            <i class="fa fa-check"></i>
+                            <span><%= perm.name%></span>
+                            </li>   
+                        <% })%>
+                    </ul>
+                <% }%>                
+            </li>   
+            <% })%>
+        </ul>
+    </li>
+    <% }) %>
+</ul>

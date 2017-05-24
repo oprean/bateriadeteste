@@ -1,0 +1,215 @@
+html {
+	position: relative;
+	min-height: 100%;
+}
+
+body {
+	/*font-family: 'Roboto';*/
+	font-weight: 100; 
+	margin-bottom: 60px;
+}
+
+.spinner {
+  margin: 100px auto 0;
+  width: 70px;
+  text-align: center;
+}
+
+.spinner > div {
+  width: 18px;
+  height: 18px;
+  background-color: #333;
+
+  border-radius: 25%;
+  border: 2px solid #000000;
+  display: inline-block;
+  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.spinner .bounce1 {
+  background-color: #f25f5c;
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+.spinner .bounce2 {
+  background-color: #ffe066;
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+.spinner .bounce3 {
+  background-color: #247ba0;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0) }
+  40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% { 
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  } 40% { 
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+  }
+}
+
+/******************* containers *********************/
+.breadcrumbs-container .breadcrumb {
+    margin-bottom: 0px;
+    background-color: inherit;
+}
+
+#header-container {}
+#main-container {}
+#footer-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  font-size: 0.9em;
+  /* Set the fixed height of the footer here */
+  height: 40px;
+  padding-top: 10px;
+  background-color: #f5f5f5;
+  border-top: 1px solid #ccc;
+}
+
+.quiz-card-container {
+	padding: 0px 10px 10px 10px;
+	background: #FFFFFF;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border: 1px solid #CCCCCC;
+	margin-bottom: 20px;
+}
+
+
+.quiz-card-description {
+	min-height: 140px
+}
+
+
+.quiz-card-buttons-container {
+	position: absolute;
+	bottom: 30px;
+}
+.question {
+	/*text-align:justify;*/
+	font-size: 20px;
+	font-weight: 300;
+}
+
+.radio-option {
+	padding: 5px;
+	text-align: left;
+}
+
+.radio-selected {
+	color: #FFFFFF;
+	background-color: #337ab7;
+	
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.label-option {
+	text-align: left;
+	min-width: 200px;
+}
+
+.label-started-on {
+	font-size: 0.8em;
+	color: #AAAAAA;
+}
+
+ul.score, ul.groups {
+	list-style-type: none;
+	padding: 0px;
+	margin: 0px;
+}
+
+ul.score li:nth-child(-n+3) {
+	font-weight: bold;
+}
+
+.score-name {
+	text-align: left;
+	display: inline-block;
+	width: 200px;
+	cursor: help;
+	border-bottom: 1px dotted #CCCCCC;
+}
+
+.score-description {
+	text-align: justify;
+	display: inline-block;
+	font-size: 0.9em;
+	font-weight: normal;
+}
+
+.btn-nav-question {
+	width: 150px;
+}
+
+.btn-quiz-status {
+	width: 100px;
+}
+
+.vl {
+	border-left: 1px solid #AAAAAA;
+}
+
+.login {
+	/*width: 400px;*/
+}
+
+.quiz-grid-row {
+    cursor: pointer;
+}
+
+.users-grid-body-container tr {
+    cursor: pointer;
+}
+
+ul.list-question-options {
+    list-style-type:lower-latin;
+}
+
+#loading {
+    position:absolute;
+    bottom:0px;
+    right:10px;
+    color: #337AB7;
+    font-weight: bold;
+}
+
+.shadow {
+    -webkit-filter: drop-shadow( 15px 15px 15px #ccc );
+    filter: drop-shadow( 15px 15px 15px #ccc ); 
+}
+
+.result-row {
+    cursor: pointer;
+}
+
+.hide-thead thead {
+    display:none;
+}
+
+.users-grid-filter-container .backgrid-filter.form-search {
+    margin: 0px;
+}
+
+th.actions {
+    width: 50px;
+}
+
+.backgrid th {
+    text-align: left;
+}

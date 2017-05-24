@@ -1,0 +1,31 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <p></p>
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" aria-valuenow="<%= progress.percent %>" aria-valuemin="0" aria-valuemax="100" style="min-width: 3.5em; width: <%= progress.percent %>%">
+                <%= progress.text %>
+              </div>
+            </div>
+            <div class="question-container">
+                <div class="alert alert-warning validationError" style="display: none" role="alert"></div>
+                <p class="question"><%= position %>.<%= qtr(text) %></p>
+                    <% _.each(options, function(option) { %>
+                     <%= renderOption(option, answer) %>
+                    <% }) %>
+                <br />
+            </div>
+    
+            <div>
+                <a <%= !button.prev.visible?'style="display:none"':''%> class="btn btn-primary btn-lg btn-nav-prev-question pull-left" href="#quiz/<%= quiz_id %>/q/<%= button.prev.url %>" role="button">
+                    <span aria-hidden="true" class="glyphicon <%= button.prev.icon %>"></span>
+                    <%= button.prev.text %>
+                </a>
+                <a <%= !button.next.visible?'style="display:none"':''%> class="btn btn-primary btn-lg btn-nav-next-question pull-right" href="#quiz/<%= quiz_id %>/q/<%= button.next.url %>" role="button">
+                    <%= button.next.text %>
+                    <span aria-hidden="true" class="glyphicon <%= button.next.icon %>"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

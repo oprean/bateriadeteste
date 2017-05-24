@@ -1,0 +1,12 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= title %></h3>
+  </div>
+  <div class="panel-body">
+    <ul class="list-group">
+      <% list.each(function(item){ %>
+        <li class="list-group-item <%= type %>-item"><%= item.get(attr)%></li>            
+      <% }) %>
+    </ul>
+  </div>
+</div>

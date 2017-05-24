@@ -1,0 +1,30 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+        Group: <%=name%>
+    </h3>
+  </div>
+  <div class="panel-body">
+    <div>
+        <label>Description: </label>
+        <%= description %>                
+    </div>
+    <div>
+        <label>Members: </label>
+        <%= members.length %>                
+    </div>
+  </div>
+  <div class="panel-footer">
+    <button class="btn btn-xs btn-primary btn-add-group">New</button>
+    <% if (appUser.permCheck(perms,'edit')) { %>
+        <button class="btn btn-xs btn-primary btn-edit-group">Edit</button>
+    <% } %>
+    <% if (appUser.permCheck(perms,'delete')) { %>
+        <button class="btn btn-xs btn-danger btn-del-group">Delete</button>
+    <% } %>
+    <% if (appUser.permCheck(perms,'edit')) { %>
+        <button class="btn btn-xs btn-primary pull-right btn-manage-group-members">Manage members</button>
+    <% } %>
+  </div>
+</div>
+

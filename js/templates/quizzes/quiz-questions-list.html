@@ -1,0 +1,39 @@
+<div class="list-group sortable-questions">
+<% _.each(questions, function(question){ %>
+  <div class="list-group-item quiz-question-item" data-id="<%=question.id %>">
+    <h4 class="list-group-item-heading">
+        <%=question.get('position') %>. <span class="question-text"><%=qtr(question.get('text')) %></span>
+        <div class="pull-right">
+            <% if (quiz.get('type')!=Constants.QUIZ_TYPE_GIFTS && appUser.permCheck(quiz.get('perms'),'edit')) { %>
+                <button class="btn btn-primary btn-xs btn-add-quiz-question-option" data-id="<%=question.id %>">Add option</button>                
+            <% } %>
+            <% if (appUser.permCheck(quiz.get('perms'),'edit')) { %>
+                <button class="btn btn-success btn-xs btn-edit-quiz-question" data-id="<%=question.id %>">Edit</button>
+            <% }if (appUser.permCheck(quiz.get('perms'),'delete')) { %>                
+                <button class="btn btn-danger btn-xs btn-delete-quiz-question" data-id="<%=question.id %>">Delete</button>                
+            <% } %>
+        </div>
+    </h4>
+    <p class="list-group-item-text">
+        <% if (quiz.get('type')!=Constants.QUIZ_TYPE_GIFTS) { %>
+            <ul class="list-question-options sortable-options">
+            <% _.each(question.get('options'), function(option){ %>
+                <li class="question-option-item" data-id="<%=option.id %>">
+                    <span class="option-text"><%=qtr(option.text) %></span><br />
+                    <%=option.group?'( '+qtr(option.group)+' )':'' %>
+                    <% if (appUser.permCheck(quiz.get('perms'),'edit')) { %>
+                        <button class="btn btn-success btn-xs btn-edit-quiz-question-option" data-id="<%=option.id %>">Edit</button>
+                    <% } if (appUser.permCheck(quiz.get('perms'),'delete')) { %>                
+                        <button class="btn btn-danger btn-xs btn-delete-quiz-question-option" data-id="<%=option.id %>">Delete</button>
+                    <% } %>
+                </li>
+            <% }) %>
+            </ul>
+            <span class="clearfix"></span>
+        <% } else { %>
+            <%= qtr(question.get('group')) %>
+        <% } %>
+    </p>
+  </div>    
+<%})%>
+</div>

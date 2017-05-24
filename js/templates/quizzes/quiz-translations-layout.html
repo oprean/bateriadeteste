@@ -1,0 +1,46 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4">
+            <h3>Internal <img src="assets/img/flags/16/int.png"> <%= translations_stats.int %>%
+                <div class="pull-right"><%= translations_stats.total %> items</div>
+                </h3>
+            <div class="int-container">
+                int
+            </div>
+        </div>
+        <div class="col-md-4">
+            <h3>Ro <img src="assets/img/flags/16/ro.png"> <%= translations_stats.ro %>%
+            <div class="pull-right">
+                <button data-lang-from="int" data-lang="ro" class="btn btn-warning btn-copy-lang btn-sm">
+                    Copy all from <img src="assets/img/flags/16/int.png">
+                </button>
+                <button data-lang-from="en" data-lang="ro" class="btn btn-warning btn-copy-lang btn-sm">
+                    Copy all from <img src="assets/img/flags/16/gb.png">
+                </button>
+                <button data-lang="ro" class="btn btn-danger btn-clear-lang btn-sm">
+                Clear
+                </button>
+            </div></h3>
+            <div class="ro-container">
+                ro
+            </div>
+        </div>
+        <div class="col-md-4">
+            <h3>En <img src="assets/img/flags/16/gb.png"> <%= translations_stats.en %>%
+            <div class="pull-right">
+                <button data-lang-from="int" data-lang="en" class="btn btn-warning btn-copy-lang btn-sm">
+                    Copy all from <img src="assets/img/flags/16/int.png">
+                </button>
+                <button data-lang-from="ro" data-lang="en" class="btn btn-warning btn-copy-lang btn-sm">
+                    Copy all from <img src="assets/img/flags/16/ro.png">
+                </button>
+                <button data-lang="en" class="btn btn-danger btn-clear-lang btn-sm">
+                    Clear
+                </button>
+            </div></h3>
+            <div class="en-container">
+                en
+            </div>
+        </div>
+    </div>
+</div>

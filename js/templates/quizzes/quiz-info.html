@@ -1,0 +1,57 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+        Quiz: <%=qtr(name)%>
+    </h3>
+  </div>
+  <div class="panel-body">
+    <div>
+        <label>Description: </label>
+        <%= qtr(description) %>                
+    </div>
+    <%if (translations) { %>
+    <div>
+        <label>Translations: </label>
+        <%= translations.total %> items 
+        <img src="assets/img/flags/16/int.png"> <%= translations.int %>% 
+        <img src="assets/img/flags/16/ro.png"> <%= translations.ro %>%
+        <img src="assets/img/flags/16/gb.png"> <%= translations.en %>%
+    </div>    
+    <% } %>
+    <div>
+        <label>Assigned to: </label>
+        <%= members.length %>                
+    </div>
+    <div>
+        <label>Active: </label>
+        <%= (active=='1')?'yes':'no' %>                
+    </div>
+  </div>
+  <div class="panel-footer">
+    <% if (appUser.permCheck(perms,'edit')) { %>
+    <button class="btn btn-xs btn-primary btn-add-quiz">New</button>
+    <%} if (appUser.permCheck(perms,'edit')) { %>
+    <button class="btn btn-xs btn-primary btn-edit-quiz">Edit</button>
+    <% } %>
+    <button class="btn btn-xs btn-primary btn-preview-quiz">Preview</button>
+    <% if (appUser.permCheck(perms,'delete')) { %>
+    <button class="btn btn-xs btn-danger btn-del-quiz">Delete</button>
+    <% } %>
+    <a href="api/pdf/quiz/<%= id+'/'+app.locale %>" download="result.pdf" class="btn btn-xs btn-primary btn-download-pdf" >
+        <i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF
+    </a>
+
+    <div class="pull-right">
+        Manage: 
+        <% if (appUser.permCheck(perms,'edit')) { %>
+    	<a class="btn btn-xs btn-primary btn-questions-quiz" href="#quiz/<%=id%>/edit" >Questions</a>
+    	<a class="btn btn-xs btn-primary btn-result-template-quiz" href="#quiz/<%=id%>/template" >Result template</a>
+    	<% } if (appUser.is(Constants.USER_TYPE_EDITOR)) { %>
+        <a class="btn btn-xs btn-primary btn-translations-quiz" href="#quiz/<%=id%>/translate" >Translations</a>
+        <% } if (appUser.permCheck(perms,'assign')) { %>
+    	<button class="btn btn-xs btn-primary btn-manage-quiz-members">Members</button>
+    	<% } %>    	
+    </div>
+  </div>
+</div>
+

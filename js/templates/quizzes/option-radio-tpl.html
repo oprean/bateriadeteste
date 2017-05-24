@@ -1,0 +1,14 @@
+<div class="radio radio-option ">
+	<label class="label-option">
+	  	<input 
+	  		type="radio" 
+	  		name="option_answer" 
+	  		class="option-answer" 
+	  		data-option-id="<%= option.id %>" 
+            data-group-id="<%= option.quizgroup_id %>"
+	  		value="<%= option.value %>"
+	  		<%= (answer && answer.data[0].option_id == option.id)?'checked="checked"':'' %> 
+	  	/>	  	
+ 	  <%= qtr(option.text)%>
+	</label>
+</div>

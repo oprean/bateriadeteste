@@ -1,0 +1,14 @@
+<div class="radio radio-option ">
+    <label class="label-option">
+      <%= qtr(option.text)%><br />
+        <input 
+            type="text" 
+            name="option_answer" 
+            class="option-answer"
+            style="width: 400px" 
+            data-option-id="<%= option.id %>" 
+            data-group-id="<%= option.quizgroup_id %>"
+            value="<%= value %>" 
+        />      
+    </label>
+</div>

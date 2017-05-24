@@ -1,0 +1,17 @@
+<div class="list-group">
+<% _.each(groups, function(group){ %>
+  <div class="list-group-item">
+    <h4 class="list-group-item-heading">
+        <span class="group-text"><%=qtr(group.get('name')) %></span>
+        <div class="pull-right">
+            <% if (appUser.permCheck(quiz.get('perms'),'edit')) { %>
+            <button class="btn btn-success btn-xs btn-edit-quiz-group" data-id="<%=group.id %>">Edit</button>
+            <% } if (appUser.permCheck(quiz.get('perms'),'delete')) { %>
+            <button class="btn btn-danger btn-xs btn-delete-quiz-group" data-id="<%=group.id %>">Delete</button>
+            <% } %>        
+        </div>
+    </h4>
+    <p class="list-group-item-text"><%=qtr(group.get('description')) %></p>
+  </div>    
+<%})%>
+</div>

@@ -1,0 +1,44 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4">
+            <button class="btn btn-add btn-sm btn-primary pull-right" role="button">Add</button>
+              <!-- Nav tabs -->
+              <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#assignments" aria-controls="assignments" role="tab" data-toggle="tab">Assignments</a></li>
+                <li role="presentation"><a href="#operations" aria-controls="operations" role="tab" data-toggle="tab">Operations</a></li>
+                <li role="presentation"><a href="#quizzes" aria-controls="quizzes" role="tab" data-toggle="tab">Quizzes</a></li>
+                <li role="presentation"><a href="#users" aria-controls="users" role="tab" data-toggle="tab">Users</a></li>
+                <li role="presentation"><a href="#groups" aria-controls="groups" role="tab" data-toggle="tab">Groups</a></li>
+              </ul>
+              <div class="filter-container"></div>            
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="assignments">
+                    <div class="assignments-filter"></div>
+                    <div class="assignments-container"></div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="operations">
+                    <div class="permissions-filter-type-0"></div>
+                    <div class="operations-permissions-container"></div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="quizzes">
+                    <div class="permissions-filter-type-2"></div>
+                    <div class="quizzes-permissions-container"></div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="users">
+                    <div class="permissions-filter-type-3"></div>
+                    <div class="users-permissions-container"></div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="groups">
+                    <div class="permissions-filter-type-1"></div>
+                    <div class="groups-permissions-container"></div>
+                </div>
+              </div>
+            
+        </div>
+        <div class="col-md-8">
+            <div class="permission-details-container"> ...</div>
+        </div>
+    </div>
+</div>
+

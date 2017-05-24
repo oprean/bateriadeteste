@@ -1,0 +1,7 @@
+<a class="btn btn-xs btn-primary" href="#quiz/<%=quiz.id %>/q/home">New</a>
+<% if (quiz.status.text != 'done') { %>
+    <a class="btn btn-xs btn-primary" href="#quiz/<%=quiz.id %>/q/<%=quiz.status.question %>">Resume</a>
+<% } %>
+<% if (quiz.status.results>0) { %>
+    <a class="btn btn-xs btn-primary" href="#quiz/<%=quiz.id %>/q/result">Result</a>
+<% } %>

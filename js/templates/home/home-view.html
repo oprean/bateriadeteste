@@ -1,0 +1,34 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="jumbotron">
+			  <h1><%= i18n.t('welcome back')%>, <%= appUser.username%>!</h1>
+			  <p>...</p>
+			  <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table table-striped">
+				<tr>
+				    <td>Name</td>
+				    <td>Created</td>
+				    <td></td>
+				</tr>
+				<% quizzes.each(function(quiz) {%>
+				<tr>
+				    <td><%=qtr(quiz.get('name'))%></td>
+                    <td><%=quiz.get('created')%></td>
+                    <td>
+                        <a class="btn btn-xs btn-primary" href="#quiz/<%=quiz.id %>/q/1">New</a> 
+                        <a class="btn btn-xs btn-primary" href="#quiz/<%=quiz.id %>/q/1">Resume</a>
+                        <a class="btn btn-xs btn-primary" href="#quiz/<%=quiz.id %>/q/result">Result</a>
+                    </td>
+                </tr>
+				<%})%>
+			</table>
+		</div>
+	</div>
+</div>

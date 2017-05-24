@@ -1,0 +1,51 @@
+<form class="form-vertical" id="result-template-from">
+    <div class="pull-right">
+        <button class="btn btn-primary btn-save-template">Save</button>
+        <button type="submit" class="btn btn-primary btn-preview-template">Update preview</button>
+    </div>
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active">
+            <a href="#int" class="nav-tab" aria-controls="int" role="tab" data-toggle="tab">Internal</a>
+        </li>
+        <li role="presentation">
+            <a href="#ro" class="nav-tab" aria-controls="ro" role="tab" data-toggle="tab">Ro</a>
+        </li>
+        <li role="presentation">
+            <a href="#en" class="nav-tab" aria-controls="en" role="tab" data-toggle="tab">En</a>
+        </li>
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="int">
+            <div class="form-group">
+                <textarea name="int_template" id="int_template" class="form-control input-sm tinymce"><%= template.int %></textarea>
+                <span class="help-block"></span>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="ro">
+            <div class="form-group">
+                <textarea name="ro_template" id="ro_template" class="form-control input-sm tinymce"><%= template.ro %></textarea>
+                <span class="help-block"></span>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="en">
+            <div class="form-group">
+                <textarea name="en_template" id="en_template" class="form-control input-sm tinymce"><%= template.en %></textarea>
+                <span class="help-block"></span>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    Template variables:
+    <ul>
+    <% _.each(Constants.TEMPLATE_VARIABLE, function(tvar){ %>
+       <li><span class="badge"><%= tvar.name %></span> = <span><%= tvar.description%></span></li> 
+    <% })%>
+    </ul>
+    Use <a target="_blank" href="//imgur.com/upload">imgur</a> to store images.
+  </div>
+</div>
