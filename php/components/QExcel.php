@@ -1,5 +1,5 @@
 <?php
-require_once '../../phpexcel/PHPExcel.php';
+require_once PHPEXCEL_LIBRARY_PATH;
 
 class QExcel {
     
