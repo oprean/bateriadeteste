@@ -17,7 +17,7 @@ define([
                 async:false
             });
             
-            console.log(this.model);
+            //console.log(this.model);
             
             vent.trigger('router.page.info.update',{bcs:[
               {href:'#quizzes', text:'Quizzes', visible: appUser.hasPerm('quizzes.view')}, 

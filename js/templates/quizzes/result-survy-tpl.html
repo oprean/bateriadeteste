@@ -1,0 +1,11 @@
+<h1><%=qtr(quiz.name)%></h1>
+<%=qtr(quiz.description)%>
+<p>Username: <%= user.username %><br>
+Name: <%= user.firstname+' '+user.lastname %><br>
+Email: <%= user.email %>
+Date: <%= result.created %>
+</p>
+<% _.each(result.data, function(answer){ %>
+
+<% }) %>
+

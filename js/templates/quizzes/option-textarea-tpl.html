@@ -1,8 +1,11 @@
 <div class="radio radio-option ">
     <label class="label-option">
       <%= qtr(option.text)%><br />
-      <textarea name="xyz" style="width: 400px">
-          <%= option.value %>
-      </textarea> 
+      <textarea 
+          name="option_answer" 
+          class="option-answer form-control" 
+          style="width: 400px"
+          data-option-id="<%= option.id %>" 
+          data-group-id="<%= option.quizgroup_id %>"><%= value %></textarea> 
     </label>
 </div>

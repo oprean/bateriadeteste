@@ -1,14 +1,19 @@
 <div class="radio radio-option ">
     <label class="label-option">
-      <%= qtr(option.text)%><br />
-        <input 
-            type="text" 
-            name="option_answer" 
-            class="option-answer"
-            style="width: 400px" 
-            data-option-id="<%= option.id %>" 
-            data-group-id="<%= option.quizgroup_id %>"
-            value="<%= value %>" 
-        />      
+      <%= qtr(option.text)%><br />     
+    <div class="input-group">
+      <input 
+          type="text" 
+          name="option_answer" 
+          class="option-answer form-control input-sm" 
+          style="width: 400px"
+          data-option-id="<%= option.id %>" 
+          data-group-id="<%= option.quizgroup_id %>"
+          value="<%= value %>" 
+        />
+      <span class="input-group-btn">
+        <button class="btn btn-default btn-sm" type="button">Ok</button>
+      </span>
+    </div>   
     </label>
 </div>

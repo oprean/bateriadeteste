@@ -50,6 +50,7 @@ $app->get('/quiz/:id/result', function ($quizId) use ($app) {
             'quiz' => $oResult->quiz,
             'user' => $oResult->user,
             'groups' => $oResult->groups,
+            'options' => $oResult->options,
             'result' => $oResult->getResult()
         ]);
     } else {

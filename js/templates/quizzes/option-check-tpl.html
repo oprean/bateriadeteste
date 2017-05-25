@@ -7,7 +7,9 @@
         data-option-id="<%= option.id %>" 
         data-group-id="<%= option.quizgroup_id %>"
         value="<%= option.value %>"
-        <%= (answer && answer.data[0].option_id == option.id)?'checked="checked"':'' %>  
+        <%= (answer &&_.find(answer.data, function(opt){ return opt.option_id == option.id}))
+            ?'checked="checked"'
+            :'' %>
       /> 
       <%= qtr(option.text)%>
     </label>
