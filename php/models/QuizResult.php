@@ -28,7 +28,7 @@ class QuizRes {
                 $this->groups[] = $group;
             }
 
-            $this->options = R::getAll('SELECT * FROM [' . QUIZ_OPTION_BEAN . '], [' . QUIZ_QUESTION_BEAN . '] WHERE parent_id=quizquestion.id AND quizquestion.quiz_id = ?', [$quizId]);
+            $this->options = R::getAll('SELECT quizoption.* FROM quizoption INNER JOIN quizquestion ON quizoption.parent_id=quizquestion.id WHERE quizquestion.quiz_id = ?', [$quizId]);
 
             $this->quiz = R::getRow('SELECT * from [' . QUIZ_BEAN . '] WHERE id = ?', [$quizId]);
             $newAnswers = R::getAll('SELECT count(1) FROM [' . QUIZ_ANSWER_BEAN . '] WHERE quiz_id=? and user_id=? and quizresult_id is null', [$this->quiz['id'], $this->userId]);
@@ -263,8 +263,34 @@ class QuizRes {
         $this->saveResult();
     }
 
+    function _getOption($id) {
+        foreach ($this->options as $option) {
+            if ($option['id'] == $id) {
+                return $option;
+                break;
+            }
+        }
+        return false;
+    }
+
     function buildSurveyResult($answers) {
-        $this->result = $answers;
+        $results= [];
+        foreach ($answers as $answer) {
+            $question = R::getCell('SELECT text FROM '.QUIZ_QUESTION_BEAN.' WHERE id=?',[$answer['question_id']]);
+            $result['question'] = json_decode($question);
+            $result['answer'] = [];
+            foreach ($answer['data'] as $data) {
+                //[{"option_id":308,"option_val":"romantic value","group_id":""},{"option_id":309,"option_val":"classic value","group_id":""}]
+                $option = $this->_getOption($data->option_id);
+                $result['answer'][] = [
+                    'type' => $option['type'],
+                    'text' => json_decode($option['text']),
+                    'value' => $data->option_val
+                ];
+            }
+            $results[] = $result;
+        }
+        $this->result = $results;
         $this->saveResult();
     }
 

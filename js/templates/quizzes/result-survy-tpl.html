@@ -5,7 +5,10 @@ Name: <%= user.firstname+' '+user.lastname %><br>
 Email: <%= user.email %>
 Date: <%= result.created %>
 </p>
-<% _.each(result.data, function(answer){ %>
-
+<% _.each(result.data, function(data){ %>
+    <h4><%= qtr(data.question) %></h4>
+    <% _.each(data.answer, function(ans){ %>
+        <div><%= qtr(ans.text) %> : <%= ans.value %></div>
+    <% }) %>
 <% }) %>
 
