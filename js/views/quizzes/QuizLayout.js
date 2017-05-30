@@ -8,7 +8,7 @@ define([
   'views/quizzes/QuizAssignMembersView',
   'views/quizzes/QuizInfoView',
   'views/quizzes/QuizPreviewView',
-  'views/quizzes/QuizMembersView',
+  'views/quizzes/QuizMembersLayout',
   'text!templates/quizzes/quiz-layout.html',
   'components/Utils',
   'components/Constants',
