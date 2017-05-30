@@ -3,7 +3,7 @@ define([
   'underscore',
   'backbone',
   'components/Constants',
-  'text!templates/groups/group-members.html',
+  'text!templates/quizzes/quiz-assigned-members.html',
   'components/Events',
   'backbone.modal',
 ], function($, _, Backbone, Constants, groupTpl, vent){

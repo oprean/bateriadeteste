@@ -23,6 +23,13 @@ class QMail {
 		$this->_mail->SetFrom(SMTP_SETFROM_MAIL,SMTP_SETFROM_NAME);
 	}
 	
+    function invite($data) {
+        $this->_data = $data;
+        $this->_mail->Subject = $data->title;
+        $this->_mail->Body = $data->html;  
+        $this->_mail->AddAddress($data->to);     
+    }
+        
     function prepare($data) {
         $this->_data = $data;
         $this->_data->filename = uniqid(preg_replace('/[^a-z0-9]/ui', '', $data->title)).'.pdf';
@@ -51,7 +58,9 @@ class QMail {
 				)
 			);
 		}
-		unlink($this->_pdf->GetFilename());
+                if ($this->_pdf) {
+                    unlink($this->_pdf->GetFilename());
+                }
 		return $result;	
 	}
 }

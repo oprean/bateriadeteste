@@ -20,4 +20,8 @@ class User extends RedBean_SimpleModel {
             
         return $allIds;
     }
+    
+    static function emailById($id) {
+        return R::getCell('SELECT email FROM '.USER_BEAN.' WHERE id=?',[$id]);
+    }
 }

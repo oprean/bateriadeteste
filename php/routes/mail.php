@@ -12,6 +12,21 @@ $app->post('/mail', function () use ($app) {
 	echo json_encode($result);
 });
 
+$app->get('/mail/invite/:userid/:quizid', function ($userId, $quizId) use ($app) {
+    $app->response()->header('Content-Type', 'application/json');
+    $mailer = new QMail();
+    $data = (Object)[
+        'user' => $userId, 
+        'quiz' => $quizId,
+        'title' => 'Take this survey',
+        'html' => 'body',
+        'to' => User::emailById($userId)
+    ];
+    $mailer->invite($data);
+    $result = $mailer->send();
+    echo json_encode($result);
+});
+
 $app->get('/mail', function () use ($app) {
 	
 		$address = 'oprean@gmail.com';
