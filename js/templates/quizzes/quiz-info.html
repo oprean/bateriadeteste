@@ -40,7 +40,11 @@
     <a href="api/pdf/quiz/<%= id+'/'+app.locale %>" download="result.pdf" class="btn btn-xs btn-primary btn-download-pdf" >
         <i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF
     </a>
-
+    <% if (type == Constants.QUIZ_TYPE_SURVEY) { %>
+    <a href="api/excel/survey/<%= id+'/'+app.locale %>" title="<%=qtr('Download survey results')%>" download="result.xls" class="btn btn-xs btn-success btn-download-xls" >
+        <i class="fa fa-file-excel-o" aria-hidden="true"></i> XLS
+    </a>
+    <% } %>
     <div class="pull-right">
         Manage: 
         <% if (appUser.permCheck(perms,'edit')) { %>
