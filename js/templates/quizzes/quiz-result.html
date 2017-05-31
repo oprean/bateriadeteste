@@ -8,7 +8,7 @@
                     </div>
                 </div>
             </div>
-            <button type="button" class="btn btn-lg btn-primary btn-send-email" data-loading-text="Se trimite...">
+            <button type="button" class="btn btn-lg btn-primary btn-send-email" data-loading-text="<%= qtr('sending') %>">
                 <i class="fa fa-envelope-o"></i> <%= qtr('send by e-mail')%>
             </button>
             <a href="api/pdf/result/<%= result.id+'/'+app.locale %>" download="result.pdf" class="btn btn-lg btn-primary btn-download-pdf" >

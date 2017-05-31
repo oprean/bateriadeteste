@@ -9,6 +9,7 @@ define('PERMISSION_BEAN', 'permission');
 define('PERMISSION_USER_BEAN', 'permission');
 define('GROUP_BEAN', 'group');
 define('QUIZ_BEAN', 'quiz');
+define('QUIZ_INVITATION_BEAN', 'quizinvitation');
 define('QUIZ_GROUP_BEAN', 'quizgroup');
 define('QUIZ_OPTION_BEAN', 'quizoption');
 define('QUIZ_QUESTION_BEAN', 'quizquestion');

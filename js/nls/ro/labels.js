@@ -24,5 +24,10 @@ define({
     "backward" : "Înapoi",
     "done" : "Gata",
     "send by e-mail" : "Trimite prin E-mail",
-    "internal server error!" : "Eroare internă pe server!"
+    "internal server error!" : "Eroare internă pe server!",
+    "invite" : "Invită",
+    "invited_on" : "Invitat în %{date}",
+    "reinvite" : "Invită din nou",
+    "sending" : "Se trimite",
+    "loading" : "Se încarcă"
 });

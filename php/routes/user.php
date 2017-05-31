@@ -195,25 +195,3 @@ $app->put('/user/js/:id', function ($id) use ($app) {
     $user->type = $post->type;
     R::store($user);
 });
-
-$app->get('/user/import', function () use ($app) {
-    $results = R::getAll('SELECT * FROM results');
-    foreach ($results as $result) {
-        $user = R::dispense(USER_BEAN);
-        $user->username = $result['person'];
-        $user->email = $result['email'];
-        $user->password = md5('changeme');
-        $user->is_admin = false;
-        $user->maxusers = 0;
-        $user->maxgroups = 0;
-        $user->active = 0;
-        R::store($user);
-
-        $curentUser = R::load(USER_BEAN, $app->user->id);
-        $curentUser->ownUserList[] = $user;
-        R::store($curentUser);
-    }
-
-    $app->response()->header('Content-Type', 'application/json');
-    echo json_encode("import done");
-});

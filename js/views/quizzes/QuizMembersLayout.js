@@ -6,8 +6,8 @@ define([
   'models/Quiz',
   'collections/Generics',
   'models/Generic',
-  'text!templates/quizzes/quiz-assigned-members-layout.html',
-  'text!templates/quizzes/assigned-member-action-row.html',
+  'text!templates/quizzes/quiz-members-layout.html',
+  'text!templates/quizzes/member-action-row.html',
   'components/Utils',
   'components/Events',
   'backbone.modal',
@@ -19,21 +19,48 @@ define([
         },
         
         events: {
-            'click .btn-copy-lang': 'copyLang',
-            'click .btn-clear-lang': 'clearLang'
+            'click .btn-invite': 'invite',
+            'click .btn-result': 'clearLang'
         },
         
         initialize : function(options) {
             var self = this;
             this.model = options.model;
+            this.members = new Generics();
+            this.members.url = 'api/quiz/'+this.model.id+'/members';
+            this.members.fetch({
+                success: function(members) {
+                    self.members = members
+                }
+            })
         },     
+       
+        invite: function(e) {
+            $(e.target).button('loading');
+            $.ajax({
+                url: 'api/mail/invite/'+$(e.target).data('user-id')+'/'+this.model.id,
+                success: function(result) {
+                    if (result.status == 'success') {
+                        alertify.success(result.data.message);
+                    } else {
+                        alertify.error(result.data.message);
+                    }
+                },
+                error: function() {
+                    alertify.error(qtr('internal server error!'));
+                },
+                complete: function() {
+                    $(e.target).button('reset');					
+                }
+            });
+        },
        
         templateHelpers : function() {
             return {
                 Constants : Constants
             };
         },
-        
+                
         renderMembersGrid: function() {
             var self = this;                           
             var columns = [];
@@ -42,7 +69,7 @@ define([
               className: "actions-cell",             
               render : function() {
                 var tpl = _.template(actionsRowTpl); 
-                var html = tpl({userid:this.model.id, quizid:self.model.id, Constants:Constants});
+                var html = tpl({member:this.model.attributes, quizid:self.model.id, Constants:Constants});
                 this.$el.append(html);
                 return this;
               }         
@@ -82,15 +109,12 @@ define([
                 editable: false,
                 sortable: false,
                 cell: "actions",
-            });
-            
-            var members = this.model.get('members');
-            
+            });          
          
             var backgridView = new Backgrid.Grid({
-              className: 'backgrid items table table-striped table-bordered table-hover table-condensed',
+              className: 'backgrid items table table-striped table-hover table-condensed',
               columns: columns,
-              collection: new Generics(members),
+              collection: this.members,
               emptyText: "A man without history is a tree without roots.",
             });
             

@@ -247,6 +247,17 @@ $app->get('/quiz/:id/assigned', function ($id) use ($app) {
     }   
 });
 
+$app->get('/quiz/:id/members', function ($id) use ($app) {
+    $quiz = R::findOne(QUIZ_BEAN, 'id=?', array($id));
+    if ($quiz) {
+        $members = $quiz->members();
+        $app->response()->header('Content-Type', 'application/json');
+        echo json_encode($members);
+    } else {
+        $app->response()->status(404);
+    }   
+});
+
 $app->post('/quiz/:id/assigned', function ($id) use ($app) {
     $post = $app->request()->post();
     if (!empty($post['uids'])) {

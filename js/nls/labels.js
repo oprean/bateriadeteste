@@ -25,7 +25,12 @@ define({
         "backward" : "Backward",
         "done" : "Done",
         "send by e-mail" : "Send by E-mail",
-        "internal server error!" : "Internal server error!"
+        "internal server error!" : "Internal server error!",
+        "invite" : "Invite",
+        "invited_on" : "Invited on %{date}",
+        "reinvite" : "Invite again",
+        "sending" : "Sending",
+        "loading" : "Loading"
     },
     "ro": true,
     "en": true,

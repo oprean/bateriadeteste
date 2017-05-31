@@ -1,7 +1,7 @@
 define({
     "app_name" : "Quizzes & Surveys",
-	"welcome_back" : "Welcome back",
-	"hello" : "Hello",
+    "welcome_back" : "Welcome back",
+    "hello" : "Hello",
     "name" : "Name",
     "logout" : "Logout",
     "home" : "Home",
@@ -24,5 +24,10 @@ define({
     "backward" : "Backward",
     "done" : "Done",
     "send by e-mail" : "Send by E-mail",
-    "internal server error!" : "Internal server error!"
+    "internal server error!" : "Internal server error!",
+    "invite" : "Invite",
+    "invited_on" : "Invited on %{date}",
+    "reinvite" : "Invite again",
+    "sending" : "Sending",
+    "loading" : "Loading"
 });

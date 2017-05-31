@@ -51,6 +51,22 @@ class Quiz extends RedBean_SimpleModel {
         $this->groups = R::getAll('SELECT * FROM '.QUIZ_GROUP_BEAN.' WHERE quiz_id=?',[$this->id]);
     }
     
+    function members() {
+        $app = \Slim\Slim::getInstance();
+        $sql = 'SELECT u.* FROM user AS u, permission as p, permission_user as pu WHERE u.id = pu.user_id AND pu.permission_id = p.id AND ';
+        $members = R::getAll($sql.'p.name=? AND p.type = ? AND p.data = ?',['assigned', $app->const->QUIZ_TYPE, $this->id]);
+        $result = [];
+        foreach ($members as $user) {
+            $perm = Perm::perm4Item($user['id'], $app->const->USER_TYPE);
+            if ($perm!=false) {
+                $user['result'] = R::getCell('SELECT id FROM ['.QUIZ_RESULT_BEAN.'] WHERE quiz_id=? AND user_id=? ORDER BY created DESC',[$this->id, $user['id']]);
+                $user['invitation'] = R::getCell('SELECT modified FROM ['.QUIZ_INVITATION_BEAN.'] WHERE quiz_id=? AND user_id=? ORDER BY modified DESC',[$this->id, $user['id']]);
+                $result[] = $user;
+            }
+        }
+        return $result;
+    }
+    
     function toHTML($lang) {
         $html='';
         $html .= '<h1>'.qtr($this->name, $lang).'</h1>';

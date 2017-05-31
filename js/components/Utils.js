@@ -183,7 +183,7 @@ define([
             return html;
         },
 
-        t: function (text, lang) {
+        t: function (text, lang, params=null) {
             if (!text)
                 return '';
             lang = lang ? lang : app.locale;
@@ -193,7 +193,7 @@ define([
                     console.warn('WARNING: Missing internal translation for : ', text);
                 return text[lang] ? text[lang] : text['int'];
             } else {
-                return i18n.t(text);
+                return i18n.t(text,params);
             }
 
         },

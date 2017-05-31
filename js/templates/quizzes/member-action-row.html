@@ -1,0 +1,11 @@
+<button type="button" 
+        class="btn btn-xs btn-primary btn-invite" 
+        data-user-id="<%= member.id %>" 
+        data-loading-text="<%= qtr('sending') %>"
+        title="<%= (member.invitation != null)?qtr('invited_on',null, {date: member.invitation}):'' %>">
+    <i class="fa fa-envelope-o" aria-hidden="true"></i> <%= (member.invitation == null)?qtr('invite'):qtr('reinvite') %>
+</button>
+<% if (member.result != null) %>
+<button class="btn btn-xs btn-primary btn-result">
+    <i class="fa fa-envelope-o" aria-hidden="true"></i> <%= qtr('result') %>
+</button>
