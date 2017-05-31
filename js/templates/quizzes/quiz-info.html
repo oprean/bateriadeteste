@@ -49,8 +49,9 @@
         Manage: 
         <% if (appUser.permCheck(perms,'edit')) { %>
     	<a class="btn btn-xs btn-primary btn-questions-quiz" href="#quiz/<%=id%>/edit" >Questions</a>
+        <% if (type != Constants.QUIZ_TYPE_SURVEY) { %>
     	<a class="btn btn-xs btn-primary btn-result-template-quiz" href="#quiz/<%=id%>/template" >Result template</a>
-    	<% } if (appUser.is(Constants.USER_TYPE_EDITOR)) { %>
+    	<% }} if (appUser.is(Constants.USER_TYPE_EDITOR)) { %>
         <a class="btn btn-xs btn-primary btn-translations-quiz" href="#quiz/<%=id%>/translate" >Translations</a>
         <% } if (appUser.permCheck(perms,'assign')) { %>
     	<button class="btn btn-xs btn-primary btn-manage-quiz-members">Members</button>
