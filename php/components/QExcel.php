@@ -1,6 +1,4 @@
 <?php
-require_once PHPEXCEL_LIBRARY_PATH;
-
 class QExcel {
     
     private $_objPHPExcel;

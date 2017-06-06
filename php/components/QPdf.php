@@ -1,22 +1,20 @@
 <?php
-require_once TCPDF_LIBRARY_PATH;
-
 class QPdf extends TCPDF {
 	
 	private $pdf;
 	private $_data;
-    private $_filename;
+        private $_filename;
 	
 	function __construct($data) {
-		$this->_data = $data;
-		//$this->pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
-		$this->SetCompression(true);		
-		$this->setFontSubsetting(false);
-		$this->SetCreator(PDF_CREATOR);
-		$this->SetAuthor("Bateria de teste");
-		$this->SetTitle($this->_data->title);
+            $this->_data = $data;
+            //$this->pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+            $this->SetCompression(true);		
+            $this->setFontSubsetting(false);
+            $this->SetCreator(PDF_CREATOR);
+            $this->SetAuthor("Bateria de teste");
+            $this->SetTitle($this->_data->title);
 
-		parent::__construct();
+            parent::__construct();
 	}
 	
     public function GetFilename() {
