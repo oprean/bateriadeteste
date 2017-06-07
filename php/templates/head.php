@@ -14,6 +14,8 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/backbone.modal.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/backbone.modal.theme.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/backgrid.min.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/backgrid-select-all.min.css">
+        
     <link rel="stylesheet" type="text/css" href="assets/css/backgrid-filter.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/select2.min.css">
     

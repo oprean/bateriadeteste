@@ -213,3 +213,7 @@ th.actions {
 .backgrid th {
     text-align: left;
 }
+
+td.actions-cell {
+    text-align: right;
+}

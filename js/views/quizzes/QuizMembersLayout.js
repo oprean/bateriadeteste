@@ -20,6 +20,7 @@ define([
         
         events: {
             'click .btn-invite': 'invite',
+            'click .btn-invite-all': 'inviteAll',
             'click .btn-result': 'clearLang'
         },
         
@@ -35,6 +36,11 @@ define([
             })
         },     
        
+        inviteAll: function() {
+            var selectedModels = this.backgridView.getSelectedModels();
+            window.console.log(selectedModels);
+        },
+        
         invite: function(e) {
             $(e.target).button('loading');
             $.ajax({
@@ -75,6 +81,12 @@ define([
               }         
             });
            
+           
+            columns.push({
+                name: "",
+                cell: "select-row",
+                headerCell: "select-all",
+            });
             columns.push({
                 name: "username",
                 label: "Username",
@@ -111,14 +123,14 @@ define([
                 cell: "actions",
             });          
          
-            var backgridView = new Backgrid.Grid({
+            this.backgridView = new Backgrid.Grid({
               className: 'backgrid items table table-striped table-hover table-condensed',
               columns: columns,
               collection: this.members,
               emptyText: "A man without history is a tree without roots.",
             });
             
-            return backgridView;
+            return this.backgridView;
         },
         
         onBeforeShow: function() {

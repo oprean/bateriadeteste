@@ -20,7 +20,8 @@ require.config({
 		"backbone.marionette.modals" : "lib/backbone.marionette.modals",
 			
 		"backgrid" : "lib/backgrid.min",
-        "backgrid.filter" : "lib/backgrid-filter.min",
+                "backgrid.filter" : "lib/backgrid-filter.min",
+                "backgrid.selectall" : "lib/backgrid-select-all.min",
 		
 		"moment":"lib/moment.min",
 		"jquery.qrcode":"lib/jquery.qrcode-0.12.0.min",
