@@ -36,6 +36,7 @@ require_once(ROOT_DIR.'/php/routes/mail.php');
 require_once(ROOT_DIR.'/php/routes/translation.php');
 require_once(ROOT_DIR.'/php/routes/pdf.php');
 require_once(ROOT_DIR.'/php/routes/excel.php');
+require_once(ROOT_DIR.'/php/routes/template.php');
 
 $app->run();
 R::close();

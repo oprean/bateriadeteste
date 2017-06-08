@@ -217,3 +217,11 @@ th.actions {
 td.actions-cell {
     text-align: right;
 }
+
+.tpl-var {
+    cursor: pointer;
+}
+
+.tpl-var:hover {
+    color: #cccccc;
+}

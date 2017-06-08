@@ -107,6 +107,7 @@ $app->get('/quiz/:id', function ($quizId) use ($app) {
                             $group['description'] = json_decode($group['description']);
                             $groups[] = $group;
                         };
+                        $quiz['groups'] = $groups;
                         break;
                     case 'translations_stats':
                         $status = new QuizTranslation($quiz);

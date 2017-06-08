@@ -19,6 +19,7 @@ define([
             if (appUser.hasPerm('groups.view')) this.menu.push({href: '#groups', text:i18n.t('groups')});
             //if (appUser.hasPerm('statistics.view')) this.menu.push({href: '#statistics', text:i18n.t('Statistics')});
             if (appUser.hasPerm('permissions.view')) this.menu.push({href: '#permissions', text:i18n.t('permissions')});
+            if (appUser.hasPerm('templates.view')) this.menu.push({href: '#templates', text:i18n.t('templates')});
             //if (appUser.isAdmin) this.menu.push({href: '#admin', text:i18n.t('Admin')});
 		},
 		

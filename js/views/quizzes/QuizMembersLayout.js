@@ -39,40 +39,27 @@ define([
         inviteAll: function(e) {
             var self = this;
             var users = this.backgridView.getSelectedModels();
-            $(e.target).button('loading');
-            var data = {
-                quizId: this.model.id,
-                userIds: _.pluck(users, 'id')
-            }
-            $.ajax({
-                type: 'POST',
-                url: 'api/mail/invite',
-                data: data,
-                dataType: 'json',
-                success: function(result) {
-                    if (result.status == 'success') {
-                        self.members.fetch({
-                            success: function(members) {
-                                alertify.success(result.data.message);
-                            }
-                        })
-                    } else {
-                        alertify.error(result.data.message);
-                    }
-                },
-                error: function() {
-                    alertify.error(qtr('internal server error!'));
-                },
-                complete: function() {
-                    $(e.target).button('reset');					
+            $(e.target).button('loading');            
+            _.each(users, function(user) {
+                self.sendInvitationMail(user.id,self.model.id);
+            });
+            this.members.fetch({
+                success: function() {
+                    $(e.target).button('reset');
                 }
             });
         },
         
         invite: function(e) {
-            $(e.target).button('loading');
+            var el = $(e.target);
+            el.button('loading');
+            this.sendInvitationMail(el.data('user-id'),this.model.id, el);
+            this.members.fetch();
+        },
+       
+        sendInvitationMail: function(userId, quizId, el) {
             $.ajax({
-                url: 'api/mail/invite/'+$(e.target).data('user-id')+'/'+this.model.id,
+                url: 'api/mail/invite/'+userId+'/'+quizId,
                 success: function(result) {
                     if (result.status == 'success') {
                         alertify.success(result.data.message);
@@ -84,7 +71,7 @@ define([
                     alertify.error(qtr('internal server error!'));
                 },
                 complete: function() {
-                    $(e.target).button('reset');					
+                    if(el)el.button('reset');					
                 }
             });
         },

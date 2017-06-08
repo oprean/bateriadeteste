@@ -26,8 +26,10 @@ define({
     "send by e-mail" : "Send by E-mail",
     "internal server error!" : "Internal server error!",
     "invite" : "Invite",
+    "invite all" : "Invite all",
     "invited_on" : "Invited on %{date}",
     "reinvite" : "Invite again",
     "sending" : "Sending",
-    "loading" : "Loading"
+    "loading" : "Loading",
+    "templates" : "Templates"
 });

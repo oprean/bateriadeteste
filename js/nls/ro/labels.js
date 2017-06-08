@@ -26,8 +26,10 @@ define({
     "send by e-mail" : "Trimite prin E-mail",
     "internal server error!" : "Eroare internă pe server!",
     "invite" : "Invită",
+    "invite all" : "Invită pe toți",
     "invited_on" : "Invitat în %{date}",
     "reinvite" : "Invită din nou",
     "sending" : "Se trimite",
-    "loading" : "Se încarcă"
+    "loading" : "Se încarcă",
+    "templates" : "Șabloane"
 });

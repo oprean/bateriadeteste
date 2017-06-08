@@ -15,6 +15,8 @@ define('QUIZ_OPTION_BEAN', 'quizoption');
 define('QUIZ_QUESTION_BEAN', 'quizquestion');
 define('QUIZ_ANSWER_BEAN', 'quizanswer');
 define('QUIZ_RESULT_BEAN', 'quizresult');
+define('TEMPLATE_BEAN', 'template');
+
 define( 'REDBEAN_MODEL_PREFIX', '' );
 
 require ROOT_DIR.'/vendor/autoload.php';

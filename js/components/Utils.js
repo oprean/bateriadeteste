@@ -183,7 +183,7 @@ define([
             return html;
         },
 
-        t: function (text, lang, params=null) {
+        t: function (text, lang, params) {
             if (!text)
                 return '';
             lang = lang ? lang : app.locale;

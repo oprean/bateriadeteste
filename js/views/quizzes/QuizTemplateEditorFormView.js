@@ -12,6 +12,7 @@ define([
         template : _.template(editorTpl),
         initialize : function(options) {
             var self = this;
+            this.lang = 'int';
             this.options.editor = {
                 int:null,ro:null,en:null
             };
@@ -20,7 +21,18 @@ define([
         events : {
             'submit #result-template-from' : 'previewUpdateTemplate',
             'click .btn-save-template': 'saveTemplate',
-            'click .nav-tab': 'previewTemplate'
+            'click .nav-tab': 'previewTemplate',
+            'click .tpl-var': 'insertTVar'
+        },
+        
+        insertTVar: function(e) {
+            var tvar = $(e.target).data('tvar');  
+            switch (this.lang) {
+                case 'int': this.options.editor.int.execCommand('mceInsertContent', false, tvar); break;
+                case 'ro': this.options.editor.ro.execCommand('mceInsertContent', false, tvar); break;
+                case 'en': this.options.editor.en.execCommand('mceInsertContent', false, tvar); break;
+            }
+
         },
           
         saveTemplate: function() {
@@ -34,8 +46,8 @@ define([
         },
         
         previewTemplate: function(e) {
-          var lang = $(e.target).attr('aria-controls');  
-          vent.trigger('quiz.template.preview', {model:this.model, lang:lang});
+          this.lang = $(e.target).attr('aria-controls');  
+          vent.trigger('quiz.template.preview', {model:this.model, lang:this.lang});
         },
                      
         previewUpdateTemplate: function(event) {

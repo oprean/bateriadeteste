@@ -1,0 +1,39 @@
+<div class="bbm-modal__topbar">
+ 	<button type="button" class="close btn-cancel" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	<h3 class="bbm-modal__title">Template:<%= name %></h3>
+</div>
+<div class="bbm-modal__section">
+<form class="form-horizontal">
+<div class="row">
+<div class="col-md-12">
+  <div class="form-group">
+    <label for="name" class="control-label">Name</label>
+	 <input type="text" name="name" id="name" class="form-control input-sm" value="<%= name %>"/>
+    <span class="help-block"></span>
+  </div>
+  <div class="form-group">
+    <label for="description" class="control-label">Description</label>
+	 <input type="text" name="description" id="description" class="form-control input-sm" value="<%= description %>"/>
+    <span class="help-block"></span>
+  </div>
+  <div class="form-group">
+    <label for="params" class="control-label">Params</label>
+	 <input type="text" name="params" id="params" class="form-control input-sm" value="<%= params %>"/>
+    <span class="help-block"></span>
+  </div>
+  <div class="form-group">
+    <label for="type" class="control-label">Type</label>
+	<select class="form-control" name="type" id="type">
+	  <% _.each(types, function(ty){ %>
+	  	<option value="<%=ty.id %>" <%=(ty.id==type)?'selected':'' %> ><%=ty.text %></option>
+	  <% }) %>
+	</select>
+    <span class="help-block"></span>
+  </div>
+ </div>
+</form>
+</div>
+<div class="bbm-modal__bottombar">
+	<button title="Discard changes" type="button" class="btn-cancel btn btn-default btn-sm">Cancel</button>
+	<button title="Save changes" type="button" class="btn-submit btn btn-primary btn-sm">Save</button>
+</div>
