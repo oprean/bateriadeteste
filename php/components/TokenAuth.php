@@ -4,6 +4,7 @@ require_once (ROOT_DIR.'/vendor/slim/slim/Slim/Middleware.php');
 class TokenAuth extends \Slim\Middleware {
 	
 	private $_public_uri = array(
+		'/page/',
 		'/lang/',
 		'/activate/',
 		'/login',

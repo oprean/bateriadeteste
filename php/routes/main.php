@@ -1,6 +1,7 @@
 <?php
 
 $app->get('/', 'actionHome');
+$app->get('/page/:name', 'actionPage');
 $app->get('/lang/:lang', 'actionLanguage');
 $app->get('/app', 'actionApp');
 $app->get('/activate/:userid/:token', 'actionActivate');
@@ -17,6 +18,12 @@ function actionLanguage($lang) {
 	//dump($lang);die;
 	$_SESSION['bdt.language'] = $lang;
 	$app->redirect($app->request->getRootUri().'/app');
+}
+
+function actionPage($name) {
+    $app = \Slim\Slim::getInstance();
+    $app->view->setLayout('empty_layout.php');
+    $app->render('page.php', array('jsapp' => false, 'error' => true, 'html' => $name));
 }
 
 function actionLogin() {

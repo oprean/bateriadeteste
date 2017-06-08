@@ -36,9 +36,37 @@ define([
             })
         },     
        
-        inviteAll: function() {
-            var selectedModels = this.backgridView.getSelectedModels();
-            window.console.log(selectedModels);
+        inviteAll: function(e) {
+            var self = this;
+            var users = this.backgridView.getSelectedModels();
+            $(e.target).button('loading');
+            var data = {
+                quizId: this.model.id,
+                userIds: _.pluck(users, 'id')
+            }
+            $.ajax({
+                type: 'POST',
+                url: 'api/mail/invite',
+                data: data,
+                dataType: 'json',
+                success: function(result) {
+                    if (result.status == 'success') {
+                        self.members.fetch({
+                            success: function(members) {
+                                alertify.success(result.data.message);
+                            }
+                        })
+                    } else {
+                        alertify.error(result.data.message);
+                    }
+                },
+                error: function() {
+                    alertify.error(qtr('internal server error!'));
+                },
+                complete: function() {
+                    $(e.target).button('reset');					
+                }
+            });
         },
         
         invite: function(e) {
@@ -90,7 +118,7 @@ define([
             columns.push({
                 name: "username",
                 label: "Username",
-                editable: true,
+                editable: false,
                 sortable: false,
                 cell: "string",    
             });
