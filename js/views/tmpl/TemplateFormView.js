@@ -25,7 +25,9 @@ define([
         fillModel: function (model) {
             model.set({
                 name: $('#name').val(),
+                title: $('#title').val(),
                 description: $('#description').val(),
+                params: $('#params').val(),
                 type: $('#type').val(),
             });
         },

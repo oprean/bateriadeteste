@@ -8,7 +8,7 @@ $app->get('/template', function () use ($app) {
 $app->get('/template/:id', function ($id) use ($app) {
     $template = R::findOne(TEMPLATE_BEAN, $id);
     $app->response()->header('Content-Type', 'application/json');
-    echo json_encode($template);	
+    echo json_encode($template->export());
 });
 
 $app->post('/template', function () use ($app) {
@@ -16,12 +16,13 @@ $app->post('/template', function () use ($app) {
 
     $tmpl = R::dispense(TEMPLATE_BEAN);
     $tmpl->name = $post->name;
+    $tmpl->title = $post->title;
     $tmpl->description = $post->description;
     $tmpl->type = $post->type;
+    $tmpl->params = $post->params;
     $tmpl->int = null;
     $tmpl->ro = null;
     $tmpl->en = null;
-    $tmpl->params = $post->params;
     $tmpl->created = date('Y-m-d H:i:s');
     $tmpl->modified = date('Y-m-d H:i:s');
     R::store($tmpl);
@@ -38,6 +39,11 @@ $app->put('/template/:id', function ($id) use ($app) {
     $post = json_decode($app->request()->getBody());
 
     $tmpl = R::findOne(TEMPLATE_BEAN, $id);
+    $tmpl->name = $post->name;
+    $tmpl->title = $post->title;
+    $tmpl->description = $post->description;
+    $tmpl->type = $post->type;
+    $tmpl->params = $post->params;
     $tmpl->int = $post->int;
     $tmpl->ro = $post->ro;
     $tmpl->en = $post->en;

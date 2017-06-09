@@ -8,6 +8,7 @@ define([
         defaults: {
             id: null,
             name: null,
+            title: null,
             description: null,
             params: null,
             type: null,

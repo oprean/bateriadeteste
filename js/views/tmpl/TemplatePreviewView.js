@@ -23,7 +23,8 @@ define([
             var self = this;
             var html = Utils.previewTemplate(this.model,this.lang);
             return {
-                'html': html
+                'html': html,
+                'title': this.model.get('title')
             };
         },
     });

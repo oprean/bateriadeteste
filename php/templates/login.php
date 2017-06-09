@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-4"></div>
         <div class="col-md-4">
-                <img class="img-responsive center-block" src="assets/img/logo.svg">
+                <img class="img-responsive center-block" src="assets/img/logo_beta.svg">
             <form class="form-horizontal" method="post">
                 <div class="form-group <?php echo isset($error)?'has-error':''?>">
                     <div class="col-sm-12">
