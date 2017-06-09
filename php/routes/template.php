@@ -33,3 +33,21 @@ $app->post('/template', function () use ($app) {
         $app->response()->status(404);
     }
 });
+
+$app->put('/template/:id', function ($id) use ($app) {
+    $post = json_decode($app->request()->getBody());
+
+    $tmpl = R::findOne(TEMPLATE_BEAN, $id);
+    $tmpl->int = $post->int;
+    $tmpl->ro = $post->ro;
+    $tmpl->en = $post->en;
+    $tmpl->modified = date('Y-m-d H:i:s');
+    R::store($tmpl);
+    	
+    if ($tmpl) {
+        $app->response()->header('Content-Type', 'application/json');
+        echo json_encode($tmpl->export());
+    } else {
+        $app->response()->status(404);
+    }
+});

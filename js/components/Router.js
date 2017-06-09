@@ -45,8 +45,8 @@ define([
             'quiz/:id/template': 'quiztemplates',
             'quiz/:id/translate': 'quiztranslations',
 
-            'templates': 'templates',
-            'template/:id': 'template',
+            'templates': 'tmpls',
+            'template/:id': 'tmpl',
 
             'permissions': 'permissions',
             //'permission/:id': 'permission',

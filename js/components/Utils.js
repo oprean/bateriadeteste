@@ -83,19 +83,24 @@ define([
             }
         },
 
-        prepareTemplateData: function (model) {
-            var result = model.get('result').data.result;
-            var group = _.findWhere(model.get('groups'), {id: result.group_id});
-            result.name = group.name;
-            result.description = group.description;
-            _.each(model.get('result').data.groups, function (group) {
-                var g = _.findWhere(model.get('groups'), {id: group.group_id});
-                group.name = g.name;
-                group.description = g.description;
-            });
+        previewTemplate: function (model, lang) {
+            var self = this;
+            var clone = model.clone();
+            var html = clone.get(lang);
+            html = html ? html : '';
+
+            var tvars = clone.get('params')
+            if (tvars) {
+                tvars.split(' ');
+                _.each(tvars, function (tvar) {
+                    html = html.replace(tvar, 'TMPL_VAR');
+                });
+            }
+
+            return html;
         },
 
-        previewTemplate: function (model, lang) {
+        previewQuizTemplate: function (model, lang) {
             var clone = model.clone();
             var groups = clone.get('groups');
             var html = clone.get(lang + '_template')
@@ -141,7 +146,6 @@ define([
                 });
             } else {
                 html = qtr(model.get('quiz').template);
-                //this.prepareTemplateData(model);
                 _.each(Constants.TEMPLATE_VARIABLE, function (tvar) {
                     html = html.replace(tvar.name, self.getTplVarVal(tvar.name, model));
                 });

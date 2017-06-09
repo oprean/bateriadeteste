@@ -97,10 +97,10 @@ define([
         permissions: function () {
             app.rootLayout.main.show(new PermissionsLayout());
         },
-        templates: function () {
+        tmpls: function () {
             app.rootLayout.main.show(new TemplatesLayout());
         },
-        template: function (id) {
+        tmpl: function (id) {
             app.rootLayout.main.show(new TemplateLayout({id:id}));
         },
         admin: function (section) {

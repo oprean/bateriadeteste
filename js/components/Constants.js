@@ -69,7 +69,7 @@ define([
                         
                         "TEAMPLATE_TYPES":[
                             {"id": "mail", "text": "Mail"},
-                            {"id": "page", "text": "Page"},
+                            {"id": "page", "text": "Page"}
                         ],
 
                         "TEMPLATE_VARIABLE": [
@@ -87,7 +87,8 @@ define([
                             {"name": "{user.lastname}", "description": "Logged user lastname"},
                             {"name": "{user.email}", "description": "Logged user email"}
                         ]
-                    };
+                    }
             /*{JSON-END}*/
+            ;
             return Constants;
         });
