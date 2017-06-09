@@ -12,7 +12,7 @@ function actionHome() {
     $app = \Slim\Slim::getInstance();
     $tmpl = R::findOne(TEMPLATE_BEAN, 'system = ?', ['home']);
     $lang = isset($_SESSION['bdt.language'])?$_SESSION['bdt.language']:'int';
-    $html = $tmpl->$lang;
+    $html = $tmpl->{$lang.'_content'};
     $app->render('page.php', array('html' => $html));
 }
 

@@ -24,7 +24,7 @@ define([
             var html = Utils.previewTemplate(this.model,this.lang);
             return {
                 'html': html,
-                'title': this.model.get('title')
+                'title': this.model.get(this.lang+'_title')
             };
         },
     });

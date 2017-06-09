@@ -100,13 +100,6 @@ define([
             cell: "string",
           },
           {
-            label: "Title",
-            name:"title",
-            editable: false,
-            sortable: false,
-            cell: "string",
-          },
-          {
             label: "Params",
             name:"params",
             editable: false,

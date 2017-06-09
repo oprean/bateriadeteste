@@ -17,13 +17,16 @@ $app->post('/template', function () use ($app) {
     $tmpl = R::dispense(TEMPLATE_BEAN);
     $tmpl->name = $post->name;
     $tmpl->system = sanitize($post->name);
-    $tmpl->title = $post->title;
+    $tmpl->title = null;
     $tmpl->description = $post->description;
     $tmpl->type = $post->type;
     $tmpl->params = $post->params;
-    $tmpl->int = null;
-    $tmpl->ro = null;
-    $tmpl->en = null;
+    $tmpl->int_content = null;
+    $tmpl->ro_content = null;
+    $tmpl->en_content = null;
+    $tmpl->int_title = null;
+    $tmpl->ro_title = null;
+    $tmpl->en_title = null;
     $tmpl->created = date('Y-m-d H:i:s');
     $tmpl->modified = date('Y-m-d H:i:s');
     R::store($tmpl);
@@ -46,9 +49,12 @@ $app->put('/template/:id', function ($id) use ($app) {
     $tmpl->description = $post->description;
     $tmpl->type = $post->type;
     $tmpl->params = $post->params;
-    $tmpl->int = $post->int;
-    $tmpl->ro = $post->ro;
-    $tmpl->en = $post->en;
+    $tmpl->int_content = $post->int_content;
+    $tmpl->ro_content = $post->ro_content;
+    $tmpl->en_content = $post->en_content;
+    $tmpl->int_title = $post->int_title;
+    $tmpl->ro_title = $post->ro_title;
+    $tmpl->en_title = $post->en_title;
     $tmpl->modified = date('Y-m-d H:i:s');
     R::store($tmpl);
     	

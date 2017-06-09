@@ -12,10 +12,14 @@ define([
             description: null,
             params: null,
             type: null,
-            int: null,
-            ro: null,
-            en: null,
-
+            
+            int_content: null,
+            ro_content: null,
+            en_content: null,
+            
+            int_title: null,
+            ro_title: null,
+            en_title: null,
         }
     });
 

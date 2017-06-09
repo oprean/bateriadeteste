@@ -86,7 +86,7 @@ define([
         previewTemplate: function (model, lang) {
             var self = this;
             var clone = model.clone();
-            var html = clone.get(lang);
+            var html = clone.get(lang+'_content');
             html = html ? html : '';
 
             var tvars = clone.get('params')

@@ -56,10 +56,12 @@ define([
           event.preventDefault();
           var lang = this.$('div.tab-pane.active').attr('id');  
           var templates = {
-            int: this.$('#int_template').val(),
-            ro: this.$('#ro_template').val(),
-            en: this.$('#en_template').val(),
-            title: this.$('#title').val()
+            int_content: this.$('#int_template').val(),
+            ro_content: this.$('#ro_template').val(),
+            en_content: this.$('#en_template').val(),
+            int_title: this.$('#int_title').val(),
+            ro_title: this.$('#ro_title').val(),
+            en_title: this.$('#en_title').val()
           };
             
           this.model.set(templates);
