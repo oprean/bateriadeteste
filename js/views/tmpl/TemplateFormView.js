@@ -47,7 +47,7 @@ define([
             this.fillModel(this.realModel);
             this.model.save(null, {
                 success: function (model) {
-                    vent.trigger('groups.layout.refresh');
+                    vent.trigger('templates.grid.refresh');
                 },
             });
         }

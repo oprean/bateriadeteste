@@ -10,12 +10,14 @@ $app->get('/logout', 'actionLogout');
 
 function actionHome() {
     $app = \Slim\Slim::getInstance();
-	$app->redirect('app');
+    $tmpl = R::findOne(TEMPLATE_BEAN, 'system = ?', ['home']);
+    $lang = isset($_SESSION['bdt.language'])?$_SESSION['bdt.language']:'int';
+    $html = $tmpl->$lang;
+    $app->render('page.php', array('html' => $html));
 }
 
 function actionLanguage($lang) {
     $app = \Slim\Slim::getInstance();
-	//dump($lang);die;
 	$_SESSION['bdt.language'] = $lang;
 	$app->redirect($app->request->getRootUri().'/app');
 }

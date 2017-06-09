@@ -58,7 +58,8 @@ define([
           var templates = {
             int: this.$('#int_template').val(),
             ro: this.$('#ro_template').val(),
-            en: this.$('#en_template').val()
+            en: this.$('#en_template').val(),
+            title: this.$('#title').val()
           };
             
           this.model.set(templates);

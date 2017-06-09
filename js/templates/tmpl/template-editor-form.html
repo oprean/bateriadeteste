@@ -47,8 +47,8 @@
   <div class="panel-body">
     Template variables:
     <ul>
-    <% _.each(Constants.TEMPLATE_VARIABLE, function(tvar){ %>
-       <li><span class="badge tpl-var" data-tvar="<%= tvar.name %>"><%= tvar.name %></span> = <span><%= tvar.description%></span></li> 
+    <% _.each(params.split(' '), function(tvar){ %>
+       <li><span class="badge tpl-var" data-tvar="{<%= tvar %>}">{<%= tvar %>}</span></li> 
     <% })%>
     </ul>
     Click on the {variable} to insert it in the template.<br>

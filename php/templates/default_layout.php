@@ -4,7 +4,7 @@
 	<div id="header-container">
 		<?php echo $header ?>
 	</div>
-	<div class="container-fluid" id="main-container">
+	<div class="container" id="main-container">
 		<?php echo $content ?> 
 	</div>
 	<div id="modals-container"></div>
