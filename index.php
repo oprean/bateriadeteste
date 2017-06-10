@@ -14,9 +14,13 @@ $oView->setLayout('default_layout.php');
 $app = new \Slim\Slim(array(
 	'debug' => DEBUG_MODE,
 	'view' => $oView,
-    'templates.path' => 'php/templates'
+        'templates.path' => 'php/templates'
 ));
 $app->add(new TokenAuth());
+
+$app->lang = isset($_SESSION['bdt.language'])
+        ?$_SESSION['bdt.language']
+        :'int';
 
 require_once(ROOT_DIR.'/php/routes/main.php');
 

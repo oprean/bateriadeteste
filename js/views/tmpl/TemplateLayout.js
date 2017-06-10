@@ -22,7 +22,6 @@ define([
         },
         
         initialize : function(options) {
-            var self = this;
             this.model = new Template({id:options.id});
             this.model.fetch({
                 async: false,

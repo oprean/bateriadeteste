@@ -50,15 +50,16 @@ $app->get('/mail/invite/:userid/:quizid', function ($userId, $quizId) use ($app)
     $app->response()->header('Content-Type', 'application/json');
     $mailer = new QMail();
     
-    $body = file_get_contents(TEMPLATES_DIR.'email'.DS.'invitation.html');
-    
+    $tmpl = R::findOne(TEMPLATE_BEAN, 'system = ? and type = ?', ['invitation','mail']);
+
     $data = (Object)[
         'user' => $userId, 
         'quiz' => $quizId,
-        'title' => 'Take this survey',
-        'html' => $body,
+        'title' => $tmpl->{$app->lang.'_title'},
+        'html' => $tmpl->{$app->lang.'_content'},
         'to' => User::emailById($userId)
     ];
+
     $invitation = R::findOne(QUIZ_INVITATION_BEAN,'quiz_id=? AND user_id=?',[$quizId, $userId]);
     if (!empty($invitation)) {
         $invitation->count++;

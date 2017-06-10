@@ -9,6 +9,7 @@ R::setup( 'sqlite:'.ROOT_DIR.DS.'data'.DS.'bateriadeteste.sqlite' );
 $app = new \Slim\Slim();
 $app->config('debug', DEBUG_MODE);
 $app->const = jsconstants();
+$app->lang = isset($_SESSION['bdt.language'])?$_SESSION['bdt.language']:'int';
 
 // not sure this is ok!
 if (isset($_SESSION['bdt.user'])) {

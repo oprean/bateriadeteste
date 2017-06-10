@@ -66,10 +66,12 @@ define([
                         
                         "TEAMPLATE_TYPE_MAIL":"mail",
                         "TEAMPLATE_TYPE_PAGE":"page",
+                        "TEAMPLATE_TYPE_PARTIAL":"partial",
                         
                         "TEAMPLATE_TYPES":[
                             {"id": "mail", "text": "Mail"},
-                            {"id": "page", "text": "Page"}
+                            {"id": "page", "text": "Page"},
+                            {"id": "partial", "text": "Partial"}
                         ],
 
                         "TEMPLATE_VARIABLE": [
