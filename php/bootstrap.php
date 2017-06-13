@@ -34,3 +34,4 @@ require_once(ROOT_DIR.'/php/models/QuizResult.php');
 require_once(ROOT_DIR.'/php/models/User.php');
 require_once(ROOT_DIR.'/php/models/Group.php');
 require_once(ROOT_DIR.'/php/models/Quiz.php');
+require_once(ROOT_DIR.'/php/models/Template.php');

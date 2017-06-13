@@ -88,6 +88,12 @@ define([
                             {"name": "{user.firstname}", "description": "Logged user fistname"},
                             {"name": "{user.lastname}", "description": "Logged user lastname"},
                             {"name": "{user.email}", "description": "Logged user email"}
+                        ],
+                        
+                        "GENERAL_TEMPLATE_VARIABLE": [
+                            {"name": "{quiz.name}", "description": "Quiz name"},
+                            {"name": "{quiz.link}", "description": "Quiz link"},
+                            {"name": "{user.name}", "description": "User name"}
                         ]
                     }
             /*{JSON-END}*/
