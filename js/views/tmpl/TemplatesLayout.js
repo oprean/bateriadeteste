@@ -100,8 +100,8 @@ define([
             cell: "string",
           },
           {
-            label: "Params",
-            name:"params",
+            label: "System name",
+            name:"system",
             editable: false,
             sortable: false,
             cell: "string",
@@ -116,6 +116,13 @@ define([
           {
             label: "Type",
             name:"type",
+            editable: false,
+            sortable: false,
+            cell: "string",
+          },
+          {
+            label: "Params",
+            name:"params",
             editable: false,
             sortable: false,
             cell: "string",
