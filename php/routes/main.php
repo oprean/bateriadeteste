@@ -16,7 +16,7 @@ function actionHome() {
     $html = $tmpl->{$app->lang . '_content'};
     $title = $tmpl->{$app->lang . '_title'};
 
-    $tmpl = R::findOne(TEMPLATE_BEAN, 'system = ?', ['static-header']);
+    $tmpl = R::findOne(TEMPLATE_BEAN, 'system = ?', ['home-static-header']);
     $header = $tmpl->{$app->lang . '_content'};
 
     $tmpl = R::findOne(TEMPLATE_BEAN, 'system = ?', ['static-footer']);
@@ -28,12 +28,6 @@ function actionHome() {
         'html' => $html,
         'sfooter' => $footer
     ]);
-}
-
-function actionLanguage($lang) {
-    $app = \Slim\Slim::getInstance();
-    $_SESSION['bdt.language'] = $lang;
-    $app->redirect($app->request->getRootUri() . '/app');
 }
 
 function actionPage($name) {
@@ -56,6 +50,12 @@ function actionPage($name) {
         'html' => $html,
         'sfooter' => $footer
     ]);
+}
+
+function actionLanguage($lang) {
+    $app = \Slim\Slim::getInstance();
+    $_SESSION['bdt.language'] = $lang;
+    $app->redirect($app->request->getRootUri() . '/app');
 }
 
 function actionLogin() {

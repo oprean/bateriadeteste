@@ -19,6 +19,10 @@
       <ul class="nav navbar-nav navbar-right">
 
       	<li><a href="login">Login</a></li>	
+        <li><div style="padding: 14px;">
+      		<a href="lang/ro"><img src="assets/img/flags/16/ro.png"></a>
+      		<a href="lang/en"><img src="assets/img/flags/16/gb.png"></a>      		
+      	</div></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

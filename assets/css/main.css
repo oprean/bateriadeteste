@@ -58,6 +58,15 @@ body {
   }
 }
 
+.business-header {
+    height: 450px;
+    background: url('../img/home-header.jpg') center center no-repeat scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
 /******************* containers *********************/
 .breadcrumbs-container .breadcrumb {
     margin-bottom: 0px;
