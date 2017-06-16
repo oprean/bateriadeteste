@@ -35,14 +35,14 @@ function actionPage($name) {
     $app->view->setLayout('static_layout.php');
 
     $tmpl = R::findOne(TEMPLATE_BEAN, 'system = ?', [$name]);
-    $html = $tmpl->{$app->lang . '_content'};
+    $html = $tmpl->renderContent();
     $title = $tmpl->{$app->lang . '_title'};
 
     $tmpl = R::findOne(TEMPLATE_BEAN, 'system = ?', ['static-header']);
-    $header = $tmpl->{$app->lang . '_content'};
+    $header = $tmpl->renderContent();
 
     $tmpl = R::findOne(TEMPLATE_BEAN, 'system = ?', ['static-footer']);
-    $footer = $tmpl->{$app->lang . '_content'};
+    $footer = $tmpl->renderContent();
 
     $app->render('page.php', [
         'title' => $title,
@@ -55,7 +55,8 @@ function actionPage($name) {
 function actionLanguage($lang) {
     $app = \Slim\Slim::getInstance();
     $_SESSION['bdt.language'] = $lang;
-    $app->redirect($app->request->getRootUri() . '/app');
+    //dump($app->request->getReferrer());
+    $app->redirect($app->request->getRootUri());
 }
 
 function actionLogin() {

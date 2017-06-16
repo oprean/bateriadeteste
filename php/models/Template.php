@@ -1,20 +1,20 @@
 <?php
 class Template extends RedBean_SimpleModel {
-    public function renderTitle($data) {
+    public function renderTitle($data = null) {
         return $this->render('title', $data);
     }
 
-    public function renderContent($data) {
+    public function renderContent($data = null) {
         return $this->render('content', $data);
     }
     
-    public function render($field, $data) {
+    public function render($field, $data = null) {
         $app = \Slim\Slim::getInstance();
         $field = $app->lang.'_'.$field;
         $text = empty($this->$field)
             ?$this->{'int_'.$field}
             :$this->$field;
-
+            
         foreach ($app->const->GENERAL_TEMPLATE_VARIABLE as $tplVar) {
             $text = str_replace($tplVar->name, self::getTplVarVal($tplVar->name, $app->lang, $data), $text);
         };
@@ -25,7 +25,7 @@ class Template extends RedBean_SimpleModel {
         return empty($textObj->$lang) ? $textObj->int : $textObj->$lang;
     }
     
-    public static function getTplVarVal($tplVar, $lang, $data) {
+    public static function getTplVarVal($tplVar, $lang, $data=null) {
 
         switch ($tplVar) {
             case '{quiz.name}': 
@@ -40,6 +40,8 @@ class Template extends RedBean_SimpleModel {
             case '{user.name}': 
                 $user = R::load(USER_BEAN, $data->user);
                 return $user->fullName();
+            case '{base.link}': 
+                return BASE_URL;
 
             default: return $tplVar;
         }

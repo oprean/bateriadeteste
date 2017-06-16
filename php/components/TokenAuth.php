@@ -28,10 +28,7 @@ class TokenAuth extends \Slim\Middleware {
 
     private function _isPublicUri($uri) {
         foreach ($this->_public_uri as $public_uri) {
-//            echo $public_uri.'=='.$uri.'<br>';
-            //echo '1 '.strpos($uri, $public_uri).' 2 '.strpos($public_uri, $uri).' 3';
             if (strpos($uri, $public_uri) === 0) {
-                //dump(strpos($public_uri, $uri));
                 return true;
             }
 

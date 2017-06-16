@@ -17,7 +17,7 @@ $app = new \Slim\Slim(array(
         'templates.path' => 'php/templates'
 ));
 $app->add(new TokenAuth());
-
+$app->const = jsconstants();
 $app->lang = isset($_SESSION['bdt.language'])
         ?$_SESSION['bdt.language']
         :'int';
