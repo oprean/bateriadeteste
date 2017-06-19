@@ -10,6 +10,11 @@ class AppUser {
         $this->isAdmin = $this->_bean->is_admin?true:false;
 	}
 
+        public static function isLoggedIn() {
+            return (!empty($_SESSION['bdt.user']['token']) && 
+                    AppUser::validateToken($_SESSION['bdt.user']['token'])); 
+	}
+        
 	public static function login($username, $password) {
 		$user = self::validateUser($username, $password); 
 		if (!empty($user)) {

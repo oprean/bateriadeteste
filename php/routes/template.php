@@ -1,6 +1,6 @@
 <?php
 $app->get('/template', function () use ($app) {
-    $templates = R::getAll('SELECT * FROM '.TEMPLATE_BEAN.' ORDER BY name ASC');
+    $templates = R::getAll('SELECT * FROM '.TEMPLATE_BEAN.' ORDER BY type, name');
     $app->response()->header('Content-Type', 'application/json');
     echo json_encode($templates);	
 });

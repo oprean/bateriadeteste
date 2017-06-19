@@ -9,25 +9,7 @@ $app->map('/login', 'actionLogin')->via('GET', 'POST');
 $app->get('/logout', 'actionLogout');
 
 function actionHome() {
-    $app = \Slim\Slim::getInstance();
-    $app->view->setLayout('static_layout.php');
-
-    $tmpl = R::findOne(TEMPLATE_BEAN, 'system = ?', ['home']);
-    $html = $tmpl->{$app->lang . '_content'};
-    $title = $tmpl->{$app->lang . '_title'};
-
-    $tmpl = R::findOne(TEMPLATE_BEAN, 'system = ?', ['home-static-header']);
-    $header = $tmpl->{$app->lang . '_content'};
-
-    $tmpl = R::findOne(TEMPLATE_BEAN, 'system = ?', ['static-footer']);
-    $footer = $tmpl->{$app->lang . '_content'};
-
-    $app->render('page.php', [
-        'title' => $title,
-        'sheader' => $header,
-        'html' => $html,
-        'sfooter' => $footer
-    ]);
+    actionPage('home');
 }
 
 function actionPage($name) {
@@ -36,9 +18,12 @@ function actionPage($name) {
 
     $tmpl = R::findOne(TEMPLATE_BEAN, 'system = ?', [$name]);
     $html = $tmpl->renderContent();
-    $title = $tmpl->{$app->lang . '_title'};
-
-    $tmpl = R::findOne(TEMPLATE_BEAN, 'system = ?', ['static-header']);
+    $title = $tmpl->renderTitle();
+    
+    $tplHeaderName = 'static-header';
+    $tplHeaderName .= ($name == 'home')?'-home':'';
+    $tplHeaderName .= (AppUser::isLoggedIn())?'-loggedin':'';
+    $tmpl = R::findOne(TEMPLATE_BEAN, 'system = ?', [$tplHeaderName]);
     $header = $tmpl->renderContent();
 
     $tmpl = R::findOne(TEMPLATE_BEAN, 'system = ?', ['static-footer']);

@@ -3,7 +3,7 @@ define([
     var Constants =
             /*{JSON-START}*/
                     {
-                        "APP_NAME": "Bateria de teste",
+                        "APP_ID": "Bateria de teste",
 
                         "USER_TYPE_ADMIN": "admin",
                         "USER_TYPE_LEADER": "leader",
@@ -71,7 +71,8 @@ define([
                         "TEAMPLATE_TYPES":[
                             {"id": "mail", "text": "Mail"},
                             {"id": "page", "text": "Page"},
-                            {"id": "partial", "text": "Partial"}
+                            {"id": "partial", "text": "Partial"},
+                            {"id": "text", "text": "Text"}
                         ],
 
                         "TEMPLATE_VARIABLE": [
@@ -91,6 +92,9 @@ define([
                         ],
                         
                         "GENERAL_TEMPLATE_VARIABLE": [
+                            {"name": "{app.name}", "description": "App name"},
+                            {"name": "{app.motto}", "description": "App motto"},
+                            {"name": "{base.link}", "description": "Base link"},
                             {"name": "{quiz.name}", "description": "Quiz name"},
                             {"name": "{quiz.link}", "description": "Quiz link"},
                             {"name": "{user.name}", "description": "User name"}

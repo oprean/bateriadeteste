@@ -14,10 +14,13 @@ class Template extends RedBean_SimpleModel {
         $text = empty($this->$field)
             ?$this->{'int_'.$field}
             :$this->$field;
-            
-        foreach ($app->const->GENERAL_TEMPLATE_VARIABLE as $tplVar) {
-            $text = str_replace($tplVar->name, self::getTplVarVal($tplVar->name, $app->lang, $data), $text);
-        };
+
+        if ($this->type != 'text') {
+            foreach ($app->const->GENERAL_TEMPLATE_VARIABLE as $tplVar) {
+                $text = str_replace($tplVar->name, self::getTplVarVal($tplVar->name, $app->lang, $data), $text);
+            };
+        }    
+
         return $text;
     }
     
@@ -29,19 +32,30 @@ class Template extends RedBean_SimpleModel {
 
         switch ($tplVar) {
             case '{quiz.name}': 
-                if (property_exists($data, 'quiz')) {
+                if (!empty($data) && property_exists($data, 'quiz')) {
                     $quiz = R::load(QUIZ_BEAN, $data->quiz);
-                }
-                return self::qtr($quiz->name, $lang);
-                
+                    return self::qtr($quiz->name, $lang);
+                }               
             case '{quiz.link}': 
-                return BASE_URL.'/app#quiz/'.$data->quiz.'/q/home';
+                if (!empty($data) && property_exists($data, 'quiz')) {
+                    return BASE_URL.'/app#quiz/'.$data->quiz.'/q/home';
+                }
                 
             case '{user.name}': 
-                $user = R::load(USER_BEAN, $data->user);
-                return $user->fullName();
+                if (!empty($data) && property_exists($data, 'user')) {
+                    $user = R::load(USER_BEAN, $data->user);
+                    return $user->fullName();
+                }
             case '{base.link}': 
                 return BASE_URL;
+                
+            case '{app.name}': 
+                $tmpl = R::findOne(TEMPLATE_BEAN, 'system = ?', ['app-name']);
+                return $tmpl->renderTitle();
+                
+            case '{app.motto}': 
+                $tmpl = R::findOne(TEMPLATE_BEAN, 'system = ?', ['app-name']);
+                return $tmpl->renderContent();
 
             default: return $tplVar;
         }

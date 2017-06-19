@@ -100,8 +100,9 @@ define([
         },
                            
         templateHelpers: function() {
+            var paramVars = $.merge(_.pluck(Constants.GENERAL_TEMPLATE_VARIABLE,'name'),this.model.get('params').split(' '))
             return {
-                Constants : Constants
+                paramVars : paramVars
             };
         },
     });
