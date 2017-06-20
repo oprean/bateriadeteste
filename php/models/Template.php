@@ -10,17 +10,16 @@ class Template extends RedBean_SimpleModel {
     
     public function render($field, $data = null) {
         $app = \Slim\Slim::getInstance();
-        $field = $app->lang.'_'.$field;
-        $text = empty($this->$field)
+        $text = empty($this->{$app->lang.'_'.$field})
             ?$this->{'int_'.$field}
-            :$this->$field;
+            :$this->{$app->lang.'_'.$field};
 
         if ($this->type != 'text') {
             foreach ($app->const->GENERAL_TEMPLATE_VARIABLE as $tplVar) {
                 $text = str_replace($tplVar->name, self::getTplVarVal($tplVar->name, $app->lang, $data), $text);
             };
         }    
-
+  
         return $text;
     }
     
