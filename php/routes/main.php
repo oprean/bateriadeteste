@@ -40,8 +40,7 @@ function actionPage($name) {
 function actionLanguage($lang) {
     $app = \Slim\Slim::getInstance();
     $_SESSION['bdt.language'] = $lang;
-    //dump($app->request->getReferrer());
-    $app->redirect($app->request->getRootUri());
+    $app->redirect('/');
 }
 
 function actionLogin() {
