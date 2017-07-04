@@ -97,7 +97,8 @@ define([
                             {"name": "{base.link}", "description": "Base link"},
                             {"name": "{quiz.name}", "description": "Quiz name"},
                             {"name": "{quiz.link}", "description": "Quiz link"},
-                            {"name": "{user.name}", "description": "User name"}
+                            {"name": "{user.name}", "description": "User name"},
+                            {"name": "{rand}", "description": "Random number"}
                         ]
                     }
             /*{JSON-END}*/

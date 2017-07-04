@@ -55,6 +55,10 @@ class Template extends RedBean_SimpleModel {
             case '{app.motto}': 
                 $tmpl = R::findOne(TEMPLATE_BEAN, 'system = ?', ['app-name']);
                 return $tmpl->renderContent();
+                
+            case '{rand}': 
+                $r = rand(0, 1);
+                return $r?$r:'';
 
             default: return $tplVar;
         }
